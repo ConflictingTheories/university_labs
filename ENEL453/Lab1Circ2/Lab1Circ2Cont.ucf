@@ -1,0 +1,9 @@
+
+#pin2ucf - Fri Jan 18 15:27:25 2013
+#The following constraints were newly added
+NET "clk" LOC = B8;
+NET "A" LOC = p11;
+NET "B" LOC = l3;
+NET "enable" LOC = k3;
+NET "Z" LOC = M5;
+NET "reset" LOC = a7;

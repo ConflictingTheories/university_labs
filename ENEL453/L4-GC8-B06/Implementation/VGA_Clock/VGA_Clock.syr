@@ -1,0 +1,819 @@
+Release 14.4 - xst P.49d (nt64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.39 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.39 secs
+ 
+--> Reading design: VGA_Clock.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "VGA_Clock.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "VGA_Clock"
+Output Format                      : NGC
+Target Device                      : xc3s100e-5-cp132
+
+---- Source Options
+Top Module Name                    : VGA_Clock
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "C:/Users/Kyle/ENEL453/VGA_Clock/pixelAddressGenerator.vhd" in Library work.
+Entity <pixeladdressgenerator> compiled.
+Entity <pixeladdressgenerator> (Architecture <behavioral>) compiled.
+Compiling vhdl file "C:/Users/Kyle/ENEL453/VGA_Clock/dualportRAM.vhd" in Library work.
+Architecture behavioral of Entity dualportram is up to date.
+Compiling vhdl file "C:/Users/Kyle/ENEL453/VGA_Clock/Gencounter.vhd" in Library work.
+Architecture behavioral of Entity gencounter is up to date.
+Compiling vhdl file "C:/Users/Kyle/ENEL453/VGA_Clock/VGA_Framebuffer.vhd" in Library work.
+Architecture behavioral of Entity vga_framebuffer is up to date.
+Compiling vhdl file "C:/Users/Kyle/ENEL453/VGA_Clock/VGA_syncgen.vhd" in Library work.
+Architecture behavioral of Entity vga_syncgen is up to date.
+Compiling vhdl file "C:/Users/Kyle/ENEL453/VGA_Clock/colorKiller.vhd" in Library work.
+Architecture behavioral of Entity colorkiller is up to date.
+Compiling vhdl file "C:/Users/Kyle/ENEL453/VGA_Clock/min60sec60.vhd" in Library work.
+Architecture behavioral of Entity min60sec60 is up to date.
+Compiling vhdl file "C:/Users/Kyle/ENEL453/VGA_Clock/Clockdivider.vhd" in Library work.
+Architecture behavioral of Entity clockdivider is up to date.
+Compiling vhdl file "C:/Users/Kyle/ENEL453/VGA_Clock/digitmux.vhd" in Library work.
+Architecture behavioral of Entity digitmux is up to date.
+Compiling vhdl file "C:/Users/Kyle/ENEL453/VGA_Clock/ROMc3by5.vhd" in Library work.
+Architecture behavioral of Entity romc3by5 is up to date.
+Compiling vhdl file "C:/Users/Kyle/ENEL453/VGA_Clock/digitdrawFSM.vhd" in Library work.
+Architecture behavioral of Entity digitdrawfsm is up to date.
+Compiling vhdl file "C:/Users/Kyle/ENEL453/VGA_Clock/ClockCounter.vhd" in Library work.
+Architecture behavioral of Entity clockcounter is up to date.
+Compiling vhdl file "C:/Users/Kyle/ENEL453/VGA_Clock/VGA_driver.vhd" in Library work.
+Architecture behavioral of Entity vga_driver is up to date.
+Compiling vhdl file "C:/Users/Kyle/ENEL453/VGA_Clock/VGA_Clock.vhd" in Library work.
+Architecture behavioral of Entity vga_clock is up to date.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <VGA_Clock> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <ROMc3by5> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <digitDrawFSM> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <ClockCounter> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <VGA_Driver> in library <work> (architecture <behavioral>) with generics.
+	downsample = 3
+
+Analyzing hierarchy for entity <min60sec60> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <clockdivider> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <digitmux> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <VGA_FrameBuffer> in library <work> (architecture <behavioral>) with generics.
+	colorbits = 3
+	pixelsinrow = 80
+	xbits = 7
+	ybits = 6
+
+Analyzing hierarchy for entity <VGA_SyncGen> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <colorKiller> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <gencounter> in library <work> (architecture <behavioral>) with generics.
+	divby = 10
+	nbits = 4
+
+Analyzing hierarchy for entity <gencounter> in library <work> (architecture <behavioral>) with generics.
+	divby = 6
+	nbits = 3
+
+Analyzing hierarchy for entity <gencounter> in library <work> (architecture <behavioral>) with generics.
+	divby = 25
+	nbits = 5
+
+Analyzing hierarchy for entity <pixelAddressGenerator> in library <work> (architecture <behavioral>) with generics.
+	pixelsInRow = 80
+	xbits = 7
+	ybits = 6
+
+Analyzing hierarchy for entity <dualportRAM> in library <work> (architecture <behavioral>) with generics.
+	addressBits = 13
+	dataBits = 3
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing Entity <VGA_Clock> in library <work> (Architecture <behavioral>).
+WARNING:Xst:1541 - "C:/Users/Kyle/ENEL453/VGA_Clock/VGA_Clock.vhd" line 102: Different binding for component: <ROMc3by5>. Port <dmap> does not match.
+WARNING:Xst:1541 - "C:/Users/Kyle/ENEL453/VGA_Clock/VGA_Clock.vhd" line 106: Different binding for component: <digitDrawFSM>. Port <digitmap> does not match.
+Entity <VGA_Clock> analyzed. Unit <VGA_Clock> generated.
+
+Analyzing Entity <ROMc3by5> in library <work> (Architecture <behavioral>).
+Entity <ROMc3by5> analyzed. Unit <ROMc3by5> generated.
+
+Analyzing Entity <digitDrawFSM> in library <work> (Architecture <behavioral>).
+Entity <digitDrawFSM> analyzed. Unit <digitDrawFSM> generated.
+
+Analyzing Entity <ClockCounter> in library <work> (Architecture <behavioral>).
+WARNING:Xst:753 - "C:/Users/Kyle/ENEL453/VGA_Clock/ClockCounter.vhd" line 84: Unconnected output port 'carry' of component 'min60sec60'.
+WARNING:Xst:753 - "C:/Users/Kyle/ENEL453/VGA_Clock/ClockCounter.vhd" line 88: Unconnected output port 'hundredhertz' of component 'clockdivider'.
+Entity <ClockCounter> analyzed. Unit <ClockCounter> generated.
+
+Analyzing Entity <min60sec60> in library <work> (Architecture <behavioral>).
+Entity <min60sec60> analyzed. Unit <min60sec60> generated.
+
+Analyzing generic Entity <gencounter.1> in library <work> (Architecture <behavioral>).
+	divby = 10
+	nbits = 4
+Entity <gencounter.1> analyzed. Unit <gencounter.1> generated.
+
+Analyzing generic Entity <gencounter.2> in library <work> (Architecture <behavioral>).
+	divby = 6
+	nbits = 3
+Entity <gencounter.2> analyzed. Unit <gencounter.2> generated.
+
+Analyzing Entity <clockdivider> in library <work> (Architecture <behavioral>).
+WARNING:Xst:753 - "C:/Users/Kyle/ENEL453/VGA_Clock/Clockdivider.vhd" line 47: Unconnected output port 'q' of component 'gencounter'.
+WARNING:Xst:753 - "C:/Users/Kyle/ENEL453/VGA_Clock/Clockdivider.vhd" line 53: Unconnected output port 'q' of component 'gencounter'.
+WARNING:Xst:753 - "C:/Users/Kyle/ENEL453/VGA_Clock/Clockdivider.vhd" line 53: Unconnected output port 'q' of component 'gencounter'.
+WARNING:Xst:753 - "C:/Users/Kyle/ENEL453/VGA_Clock/Clockdivider.vhd" line 53: Unconnected output port 'q' of component 'gencounter'.
+WARNING:Xst:753 - "C:/Users/Kyle/ENEL453/VGA_Clock/Clockdivider.vhd" line 53: Unconnected output port 'q' of component 'gencounter'.
+WARNING:Xst:753 - "C:/Users/Kyle/ENEL453/VGA_Clock/Clockdivider.vhd" line 53: Unconnected output port 'q' of component 'gencounter'.
+WARNING:Xst:753 - "C:/Users/Kyle/ENEL453/VGA_Clock/Clockdivider.vhd" line 53: Unconnected output port 'q' of component 'gencounter'.
+Entity <clockdivider> analyzed. Unit <clockdivider> generated.
+
+Analyzing generic Entity <gencounter.3> in library <work> (Architecture <behavioral>).
+	divby = 25
+	nbits = 5
+Entity <gencounter.3> analyzed. Unit <gencounter.3> generated.
+
+Analyzing Entity <digitmux> in library <work> (Architecture <behavioral>).
+INFO:Xst:1561 - "C:/Users/Kyle/ENEL453/VGA_Clock/digitmux.vhd" line 35: Mux is complete : default of case is discarded
+Entity <digitmux> analyzed. Unit <digitmux> generated.
+
+Analyzing generic Entity <VGA_Driver> in library <work> (Architecture <behavioral>).
+	downsample = 3
+Entity <VGA_Driver> analyzed. Unit <VGA_Driver> generated.
+
+Analyzing generic Entity <VGA_FrameBuffer> in library <work> (Architecture <behavioral>).
+	colorbits = 3
+	pixelsinrow = 80
+	xbits = 7
+	ybits = 6
+Entity <VGA_FrameBuffer> analyzed. Unit <VGA_FrameBuffer> generated.
+
+Analyzing generic Entity <pixelAddressGenerator> in library <work> (Architecture <behavioral>).
+	pixelsInRow = 80
+	xbits = 7
+	ybits = 6
+Entity <pixelAddressGenerator> analyzed. Unit <pixelAddressGenerator> generated.
+
+Analyzing generic Entity <dualportRAM> in library <work> (Architecture <behavioral>).
+	addressBits = 13
+	dataBits = 3
+Entity <dualportRAM> analyzed. Unit <dualportRAM> generated.
+
+Analyzing Entity <VGA_SyncGen> in library <work> (Architecture <behavioral>).
+Entity <VGA_SyncGen> analyzed. Unit <VGA_SyncGen> generated.
+
+Analyzing Entity <colorKiller> in library <work> (Architecture <behavioral>).
+Entity <colorKiller> analyzed. Unit <colorKiller> generated.
+
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <ROMc3by5>.
+    Related source file is "C:/Users/Kyle/ENEL453/VGA_Clock/ROMc3by5.vhd".
+    Found 16x15-bit ROM for signal <dmap>.
+    Summary:
+	inferred   1 ROM(s).
+Unit <ROMc3by5> synthesized.
+
+
+Synthesizing Unit <digitDrawFSM>.
+    Related source file is "C:/Users/Kyle/ENEL453/VGA_Clock/digitdrawFSM.vhd".
+WARNING:Xst:646 - Signal <digitpos<0><6>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Found finite state machine <FSM_0> for signal <digitstate>.
+    -----------------------------------------------------------------------
+    | States             | 5                                              |
+    | Transitions        | 5                                              |
+    | Inputs             | 0                                              |
+    | Outputs            | 15                                             |
+    | Clock              | clk                       (rising_edge)        |
+    | Clock enable       | digitstate$not0000        (positive)           |
+    | Reset              | reset                     (positive)           |
+    | Reset type         | asynchronous                                   |
+    | Reset State        | minute1                                        |
+    | Power Up State     | minute1                                        |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 1-bit register for signal <writeEn>.
+    Found 7-bit adder for signal <xaddr>.
+    Found 6-bit adder for signal <yaddr>.
+    Found 2-bit comparator less for signal <digitstate$cmp_lt0000> created at line 93.
+    Found 3-bit comparator less for signal <digitstate$cmp_lt0001> created at line 99.
+    Found 5-bit adder for signal <intDigitmap$addsub0000> created at line 74.
+    Found 3x2-bit multiplier for signal <intDigitmap$mult0000> created at line 74.
+    Found 1-bit 15-to-1 multiplexer for signal <intDigitmap$mux0000> created at line 74.
+    Found 2-bit up counter for signal <xoffsetcount>.
+    Found 3-bit up counter for signal <yoffsetcount>.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred   2 Counter(s).
+	inferred   1 D-type flip-flop(s).
+	inferred   3 Adder/Subtractor(s).
+	inferred   1 Multiplier(s).
+	inferred   2 Comparator(s).
+	inferred   1 Multiplexer(s).
+Unit <digitDrawFSM> synthesized.
+
+
+Synthesizing Unit <digitmux>.
+    Related source file is "C:/Users/Kyle/ENEL453/VGA_Clock/digitmux.vhd".
+    Found 4-bit 4-to-1 multiplexer for signal <outdigit>.
+    Summary:
+	inferred   4 Multiplexer(s).
+Unit <digitmux> synthesized.
+
+
+Synthesizing Unit <gencounter_1>.
+    Related source file is "C:/Users/Kyle/ENEL453/VGA_Clock/Gencounter.vhd".
+    Found 1-bit register for signal <carry>.
+    Found 4-bit up counter for signal <q_int>.
+    Summary:
+	inferred   1 Counter(s).
+	inferred   1 D-type flip-flop(s).
+Unit <gencounter_1> synthesized.
+
+
+Synthesizing Unit <gencounter_2>.
+    Related source file is "C:/Users/Kyle/ENEL453/VGA_Clock/Gencounter.vhd".
+    Found 1-bit register for signal <carry>.
+    Found 3-bit up counter for signal <q_int>.
+    Summary:
+	inferred   1 Counter(s).
+	inferred   1 D-type flip-flop(s).
+Unit <gencounter_2> synthesized.
+
+
+Synthesizing Unit <gencounter_3>.
+    Related source file is "C:/Users/Kyle/ENEL453/VGA_Clock/Gencounter.vhd".
+    Found 1-bit register for signal <carry>.
+    Found 5-bit up counter for signal <q_int>.
+    Summary:
+	inferred   1 Counter(s).
+	inferred   1 D-type flip-flop(s).
+Unit <gencounter_3> synthesized.
+
+
+Synthesizing Unit <VGA_SyncGen>.
+    Related source file is "C:/Users/Kyle/ENEL453/VGA_Clock/VGA_syncgen.vhd".
+    Found finite state machine <FSM_1> for signal <Vstate>.
+    -----------------------------------------------------------------------
+    | States             | 4                                              |
+    | Transitions        | 8                                              |
+    | Inputs             | 4                                              |
+    | Outputs            | 6                                              |
+    | Clock              | clk25                     (rising_edge)        |
+    | Reset              | reset                     (positive)           |
+    | Reset type         | asynchronous                                   |
+    | Reset State        | frontporch                                     |
+    | Power Up State     | frontporch                                     |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found finite state machine <FSM_2> for signal <Hstate>.
+    -----------------------------------------------------------------------
+    | States             | 4                                              |
+    | Transitions        | 8                                              |
+    | Inputs             | 4                                              |
+    | Outputs            | 6                                              |
+    | Clock              | clk25                     (rising_edge)        |
+    | Reset              | reset                     (positive)           |
+    | Reset type         | asynchronous                                   |
+    | Reset State        | frontporch                                     |
+    | Power Up State     | frontporch                                     |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 10-bit up counter for signal <Hcounter>.
+    Found 10-bit up counter for signal <Vcounter>.
+    Summary:
+	inferred   2 Finite State Machine(s).
+	inferred   2 Counter(s).
+Unit <VGA_SyncGen> synthesized.
+
+
+Synthesizing Unit <colorKiller>.
+    Related source file is "C:/Users/Kyle/ENEL453/VGA_Clock/colorKiller.vhd".
+Unit <colorKiller> synthesized.
+
+
+Synthesizing Unit <pixelAddressGenerator>.
+    Related source file is "C:/Users/Kyle/ENEL453/VGA_Clock/pixelAddressGenerator.vhd".
+    Found 13-bit adder for signal <linearAddress>.
+    Found 6x7-bit multiplier for signal <linearAddress$mult0000> created at line 32.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred   1 Multiplier(s).
+Unit <pixelAddressGenerator> synthesized.
+
+
+Synthesizing Unit <dualportRAM>.
+    Related source file is "C:/Users/Kyle/ENEL453/VGA_Clock/dualportRAM.vhd".
+    Found 8192x3-bit dual-port RAM <Mram_RAMBlock> for signal <RAMBlock>.
+    Found 3-bit register for signal <dataOut>.
+    Summary:
+	inferred   1 RAM(s).
+	inferred   3 D-type flip-flop(s).
+Unit <dualportRAM> synthesized.
+
+
+Synthesizing Unit <min60sec60>.
+    Related source file is "C:/Users/Kyle/ENEL453/VGA_Clock/min60sec60.vhd".
+Unit <min60sec60> synthesized.
+
+
+Synthesizing Unit <clockdivider>.
+    Related source file is "C:/Users/Kyle/ENEL453/VGA_Clock/Clockdivider.vhd".
+Unit <clockdivider> synthesized.
+
+
+Synthesizing Unit <VGA_FrameBuffer>.
+    Related source file is "C:/Users/Kyle/ENEL453/VGA_Clock/VGA_Framebuffer.vhd".
+Unit <VGA_FrameBuffer> synthesized.
+
+
+Synthesizing Unit <ClockCounter>.
+    Related source file is "C:/Users/Kyle/ENEL453/VGA_Clock/ClockCounter.vhd".
+Unit <ClockCounter> synthesized.
+
+
+Synthesizing Unit <VGA_Driver>.
+    Related source file is "C:/Users/Kyle/ENEL453/VGA_Clock/VGA_driver.vhd".
+WARNING:Xst:646 - Signal <vaddr<9>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <vaddr<2:0>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <haddr<2:0>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+Unit <VGA_Driver> synthesized.
+
+
+Synthesizing Unit <VGA_Clock>.
+    Related source file is "C:/Users/Kyle/ENEL453/VGA_Clock/VGA_Clock.vhd".
+Unit <VGA_Clock> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 1
+ 8192x3-bit dual-port RAM                              : 1
+# ROMs                                                 : 1
+ 16x15-bit ROM                                         : 1
+# Multipliers                                          : 3
+ 3x2-bit multiplier                                    : 1
+ 6x7-bit multiplier                                    : 2
+# Adders/Subtractors                                   : 5
+ 13-bit adder                                          : 2
+ 5-bit adder                                           : 1
+ 6-bit adder                                           : 1
+ 7-bit adder                                           : 1
+# Counters                                             : 15
+ 10-bit up counter                                     : 2
+ 2-bit up counter                                      : 1
+ 3-bit up counter                                      : 3
+ 4-bit up counter                                      : 8
+ 5-bit up counter                                      : 1
+# Registers                                            : 13
+ 1-bit register                                        : 12
+ 3-bit register                                        : 1
+# Comparators                                          : 2
+ 2-bit comparator less                                 : 1
+ 3-bit comparator less                                 : 1
+# Multiplexers                                         : 2
+ 1-bit 15-to-1 multiplexer                             : 1
+ 4-bit 4-to-1 multiplexer                              : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Analyzing FSM <FSM_2> for best encoding.
+Optimizing FSM <VGAdisplay/syncgen/Hstate/FSM> on signal <Hstate[1:2]> with gray encoding.
+------------------------
+ State      | Encoding
+------------------------
+ frontporch | 00
+ lowpulse   | 01
+ backporch  | 11
+ video      | 10
+------------------------
+Analyzing FSM <FSM_1> for best encoding.
+Optimizing FSM <VGAdisplay/syncgen/Vstate/FSM> on signal <Vstate[1:2]> with gray encoding.
+------------------------
+ State      | Encoding
+------------------------
+ frontporch | 00
+ lowpulse   | 01
+ backporch  | 11
+ video      | 10
+------------------------
+Analyzing FSM <FSM_0> for best encoding.
+Optimizing FSM <digitDraw/digitstate/FSM> on signal <digitstate[1:5]> with one-hot encoding.
+---------------------
+ State   | Encoding
+---------------------
+ minute1 | 00001
+ minute0 | 00010
+ colon   | 00100
+ second1 | 01000
+ second0 | 10000
+---------------------
+
+Synthesizing (advanced) Unit <dualportRAM>.
+INFO:Xst:3226 - The RAM <Mram_RAMBlock> will be implemented as a BLOCK RAM, absorbing the following register(s): <dataOut>
+    -----------------------------------------------------------------------
+    | ram_type           | Block                               |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 8192-word x 3-bit                   |          |
+    |     mode           | read-first                          |          |
+    |     clkA           | connected to signal <clk>           | rise     |
+    |     weA            | connected to signal <writeEn>       | high     |
+    |     addrA          | connected to signal <writeAddress>  |          |
+    |     diA            | connected to signal <dataIn>        |          |
+    -----------------------------------------------------------------------
+    | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 8192-word x 3-bit                   |          |
+    |     mode           | write-first                         |          |
+    |     clkB           | connected to signal <clk>           | rise     |
+    |     addrB          | connected to signal <readAddress>   |          |
+    |     doB            | connected to signal <dataOut>       |          |
+    -----------------------------------------------------------------------
+    | optimization       | speed                               |          |
+    -----------------------------------------------------------------------
+Unit <dualportRAM> synthesized (advanced).
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# FSMs                                                 : 3
+# RAMs                                                 : 1
+ 8192x3-bit dual-port block RAM                        : 1
+# ROMs                                                 : 1
+ 16x15-bit ROM                                         : 1
+# Multipliers                                          : 3
+ 3x2-bit multiplier                                    : 1
+ 6x7-bit multiplier                                    : 2
+# Adders/Subtractors                                   : 5
+ 13-bit adder                                          : 2
+ 4-bit adder                                           : 1
+ 6-bit adder                                           : 1
+ 7-bit adder                                           : 1
+# Counters                                             : 15
+ 10-bit up counter                                     : 2
+ 2-bit up counter                                      : 1
+ 3-bit up counter                                      : 3
+ 4-bit up counter                                      : 8
+ 5-bit up counter                                      : 1
+# Registers                                            : 12
+ Flip-Flops                                            : 12
+# Comparators                                          : 2
+ 2-bit comparator less                                 : 1
+ 3-bit comparator less                                 : 1
+# Multiplexers                                         : 2
+ 1-bit 15-to-1 multiplexer                             : 1
+ 4-bit 4-to-1 multiplexer                              : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:2677 - Node <clockdigits/minsec60/min1/carry> of sequential type is unconnected in block <VGA_Clock>.
+
+Optimizing unit <VGA_Clock> ...
+
+Optimizing unit <digitDrawFSM> ...
+
+Optimizing unit <VGA_SyncGen> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block VGA_Clock, actual ratio is 13.
+FlipFlop digitDraw/digitstate_FSM_FFd3 has been replicated 1 time(s)
+FlipFlop digitDraw/digitstate_FSM_FFd5 has been replicated 1 time(s)
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 90
+ Flip-Flops                                            : 90
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : VGA_Clock.ngr
+Top Level Output File Name         : VGA_Clock
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 13
+
+Cell Usage :
+# BELS                             : 359
+#      GND                         : 1
+#      INV                         : 14
+#      LUT1                        : 29
+#      LUT2                        : 55
+#      LUT2_L                      : 2
+#      LUT3                        : 33
+#      LUT3_L                      : 4
+#      LUT4                        : 80
+#      LUT4_D                      : 5
+#      LUT4_L                      : 1
+#      MUXCY                       : 53
+#      MUXF5                       : 19
+#      MUXF6                       : 2
+#      MUXF7                       : 1
+#      VCC                         : 1
+#      XORCY                       : 59
+# FlipFlops/Latches                : 90
+#      FDC                         : 27
+#      FDCE                        : 60
+#      FDE                         : 1
+#      FDPE                        : 2
+# RAMS                             : 2
+#      RAMB16_S1_S1                : 1
+#      RAMB16_S2_S2                : 1
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 12
+#      IBUF                        : 2
+#      OBUF                        : 10
+# MULTs                            : 2
+#      MULT18X18SIO                : 2
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s100ecp132-5 
+
+ Number of Slices:                      119  out of    960    12%  
+ Number of Slice Flip Flops:             90  out of   1920     4%  
+ Number of 4 input LUTs:                223  out of   1920    11%  
+ Number of IOs:                          13
+ Number of bonded IOBs:                  13  out of     83    15%  
+ Number of BRAMs:                         2  out of      4    50%  
+ Number of MULT18X18SIOs:                 2  out of      4    50%  
+ Number of GCLKs:                         1  out of     24     4%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk25                              | BUFGP                  | 92    |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+-----------------------------------+------------------------+-------+
+Control Signal                     | Buffer(FF name)        | Load  |
+-----------------------------------+------------------------+-------+
+reset                              | IBUF                   | 89    |
+-----------------------------------+------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -5
+
+   Minimum period: 11.631ns (Maximum Frequency: 85.974MHz)
+   Minimum input arrival time before clock: 3.646ns
+   Maximum output required time after clock: 7.094ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk25'
+  Clock period: 11.631ns (frequency: 85.974MHz)
+  Total number of paths / destination ports: 20177 / 209
+-------------------------------------------------------------------------
+Delay:               11.631ns (Levels of Logic = 13)
+  Source:            digitDraw/digitstate_FSM_FFd1 (FF)
+  Destination:       VGAdisplay/framebuffer/RAMUnit/Mram_RAMBlock1 (RAM)
+  Source Clock:      clk25 rising
+  Destination Clock: clk25 rising
+
+  Data Path: digitDraw/digitstate_FSM_FFd1 to VGAdisplay/framebuffer/RAMUnit/Mram_RAMBlock1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q             9   0.514   0.727  digitDraw/digitstate_FSM_FFd1 (digitDraw/digitstate_FSM_FFd1)
+     LUT3:I2->O            1   0.612   0.426  digitDraw/digitstate_FSM_Out131 (digitDraw/digitpos<0><0>)
+     LUT2:I1->O            1   0.612   0.000  digitDraw/Madd_yaddr_lut<0> (digitDraw/Madd_yaddr_lut<0>)
+     MUXCY:S->O            1   0.404   0.000  digitDraw/Madd_yaddr_cy<0> (digitDraw/Madd_yaddr_cy<0>)
+     MUXCY:CI->O           1   0.052   0.000  digitDraw/Madd_yaddr_cy<1> (digitDraw/Madd_yaddr_cy<1>)
+     MUXCY:CI->O           1   0.052   0.000  digitDraw/Madd_yaddr_cy<2> (digitDraw/Madd_yaddr_cy<2>)
+     MUXCY:CI->O           1   0.052   0.000  digitDraw/Madd_yaddr_cy<3> (digitDraw/Madd_yaddr_cy<3>)
+     MUXCY:CI->O           0   0.052   0.000  digitDraw/Madd_yaddr_cy<4> (digitDraw/Madd_yaddr_cy<4>)
+     XORCY:CI->O           1   0.699   0.357  digitDraw/Madd_yaddr_xor<5> (intyAddr<5>)
+     MULT18X18SIO:A5->P10    1   4.091   0.509  VGAdisplay/framebuffer/writeaddressgen/Mmult_linearAddress_mult0000 (VGAdisplay/framebuffer/writeaddressgen/linearAddress_mult0000<10>)
+     LUT1:I0->O            1   0.612   0.000  VGAdisplay/framebuffer/writeaddressgen/Madd_linearAddress_cy<10>_rt (VGAdisplay/framebuffer/writeaddressgen/Madd_linearAddress_cy<10>_rt)
+     MUXCY:S->O            1   0.404   0.000  VGAdisplay/framebuffer/writeaddressgen/Madd_linearAddress_cy<10> (VGAdisplay/framebuffer/writeaddressgen/Madd_linearAddress_cy<10>)
+     MUXCY:CI->O           0   0.051   0.000  VGAdisplay/framebuffer/writeaddressgen/Madd_linearAddress_cy<11> (VGAdisplay/framebuffer/writeaddressgen/Madd_linearAddress_cy<11>)
+     XORCY:CI->O           2   0.699   0.380  VGAdisplay/framebuffer/writeaddressgen/Madd_linearAddress_xor<12> (VGAdisplay/framebuffer/intWlinearAddress<12>)
+     RAMB16_S2_S2:ADDRA12        0.328          VGAdisplay/framebuffer/RAMUnit/Mram_RAMBlock1
+    ----------------------------------------
+    Total                     11.631ns (9.233ns logic, 2.399ns route)
+                                       (79.4% logic, 20.6% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk25'
+  Total number of paths / destination ports: 6 / 6
+-------------------------------------------------------------------------
+Offset:              3.646ns (Levels of Logic = 2)
+  Source:            reset (PAD)
+  Destination:       digitDraw/writeEn (FF)
+  Destination Clock: clk25 rising
+
+  Data Path: reset to digitDraw/writeEn
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            90   1.106   1.088  reset_IBUF (reset_IBUF)
+     INV:I->O              1   0.612   0.357  digitDraw/reset_inv1_INV_0 (digitDraw/reset_inv)
+     FDE:CE                    0.483          digitDraw/writeEn
+    ----------------------------------------
+    Total                      3.646ns (2.201ns logic, 1.445ns route)
+                                       (60.4% logic, 39.6% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk25'
+  Total number of paths / destination ports: 44 / 10
+-------------------------------------------------------------------------
+Offset:              7.094ns (Levels of Logic = 2)
+  Source:            VGAdisplay/framebuffer/RAMUnit/Mram_RAMBlock1 (RAM)
+  Destination:       green<2> (PAD)
+  Source Clock:      clk25 rising
+
+  Data Path: VGAdisplay/framebuffer/RAMUnit/Mram_RAMBlock1 to green<2>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     RAMB16_S2_S2:CLKB->DOB1    1   2.436   0.426  VGAdisplay/framebuffer/RAMUnit/Mram_RAMBlock1 (VGAdisplay/pixelout<1>)
+     LUT2:I1->O            3   0.612   0.451  green<1>1 (green_1_OBUF)
+     OBUF:I->O                 3.169          green_2_OBUF (green<2>)
+    ----------------------------------------
+    Total                      7.094ns (6.217ns logic, 0.877ns route)
+                                       (87.6% logic, 12.4% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 20.00 secs
+Total CPU time to Xst completion: 19.45 secs
+ 
+--> 
+
+Total memory usage is 283036 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   16 (   0 filtered)
+Number of infos    :    2 (   0 filtered)
+

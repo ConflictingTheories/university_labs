@@ -1,0 +1,13 @@
+% ENGO 333 - Assignment 2
+% George Barnhardt
+%
+% December 7, 2014
+
+% Clear Variables
+Clear all;
+
+% Load in Vectors of Points
+[Xpoint, Ypoint, Zpoint] = load('DEM.txt');
+
+% TASK 1 - Plot all Points
+PointGraph = plot3(Xpoint,Ypoint,Zpoint);

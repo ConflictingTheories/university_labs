@@ -1,0 +1,63 @@
+ENCM 511 - Final Review Acronyms
+--------------------------------
+
+ACRONYMS:
+---------
+
+	CPU 	-	Central Processing Unit
+	CCU 	- 	Central Control Unit
+	MMU 	-	Memory Mapped Unit
+	MMR 	-	Memory Mapped Register
+	ALU 	- 	Arithmetic Logic Unit
+	ROM 	- 	Read-Only Memory
+	RAM 	- 	Random Access Memory
+	DMA 	-	Direct Memory Access
+	SPI 	-	Serial Peripheral Interface
+	PPI 	-	Parallel Peripheral Interface
+	UART 	-	Universal Asynchronous Receiver/Transmitter
+	EBIU 	-	External Bus Interface Unit
+	EAB		-	External Access Bus
+	DEB		-	DMA External Bus
+	PAB		-	Peripheral Access Bus
+	AMB		-	Asynchronous Memory Bank
+	SOC		- 	System on a Chip
+	GPIO 	-	General Purpose Input Output
+	EVT 	-	Event Vector Table
+	EVR		-	Event Vector Register
+	ISR		-	Interrupt Service Routine
+	ESR		-	Exception Service Routine
+	NMI		-	Non-Maskable Interrupt
+	SPORT 	- 	Synchronous Serial Peripheral Port
+	JTAG 	-	Joint Test Action Group
+	UTTCOS 	- 	Micro Time Triggered Cooperative Operating System
+	EUNIT 	-	Embedded Univeral Integrated Testing
+	TDD 	- 	Test Driven Development
+	TLD		-	Test Last Development
+	DSP		-	Digital Signal Processing
+	PWM		-	Pulse Width Modulation
+	PSP		-	Personal Software Process
+	PPP		- 	Profound Procrastination Programming
+	PF 		-	Programmable Flag
+	MOSI	-	Master Out Slave In
+	MISO	- 	Master In Slave Out
+	MSB		-	Most Significant Bit
+	LSB		-	Least Significant Bit
+	RO 		-	Read Only
+	WAIL	- 	Worry About It Later
+	WAIN 	-	Worry About It Now
+	JITK	-	Just In Time Knowledge
+	MRE		-	Mistake Recovery Efficiency
+	DRE		-	Defect Recovery Efficiency
+	LOC		-	Lines of Code
+	
+TERMS:
+------
+
+	Scheduler	-	Part of TTCOS - It coordinates threads in a queue system. 						Threads can be run periodically or once.
+	Semaphore	-	A global variable used to communicate between ISR's and other 						portions of code.
+	Waiting		-	An approach that halts processing until waiting is completed 						- sacrificing any other tasks that need to run during that 						time.
+	Polling		-	An approach which constantly checks for different conditions, 						but may miss time sensitive information.
+	Interrupt	-	An approach which disrupts the regular flow of code to 						prioritize ISR's which must be run now. This allows for 					timely execution of important tasks.	
+	Thread		-	A task which is loaded into a scheduler to be run.
+	Edge		-	Registers are set when a rising or falling edge is detected 					as opposed to levels.
+	Level		-	Registers are set when a level is detected - either active 						high or active low.

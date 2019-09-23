@@ -1,0 +1,67 @@
+ENCM 507 - LogiColour Game Idea Scratchpad
+------------------------------------------
+
+There will need to be multiple search algorithms used with this game to make it complete
+
+	- Wire Placement (Drawing the Wire onto the Grid between Blocks)
+	- System Solve Equation for Graph Transversal (Must go through every block to ensure path is closed on all points)
+	- Readjustment of wires and blocks and solution when moved
+
+Wire Search:
+------------
+	- Is solely used for graphical purposes
+	- Needs a floor plan grid to check against
+	- Does not need to involve any logic block work - just treats everything as either empty, wire, or wall(Blocks and IO Walls)
+	- Needs a start node and an end node
+	- Can still be used for forking wires to other blocks (If connectors blocks arent used.)
+	- Needs to adjust for a change in block position etc. It should run every time a change is made(Via a flag system)
+	- But it only needs to look at a subset of nodes - the ones that are connected to the block.
+
+
+System Solver:
+--------------
+	- Needs to travel through every node and ensure that proper colour requirements are met, and that the system is fully closed
+	- Needs a graph to transverse
+	- Needs to visit every node
+	- Should use a Flag system for IO nodes meeting colour requirements
+	- Provided all requirements are met, activate solve button (Via Flag)
+	- This can be run after a change is made to the system - not every frame
+
+Logic:
+------
+	- For each block have it as a class with the nodes as elements within the class. The nodes can also be classes. 
+	- Have a changed and solved flag within the class as well.
+	- Have a list of each block and pop new ones into the list each time one is added to the grid.
+	- Anytime a node is connected have it adjust the interior classes for the nodes.
+	- Additionally, have the block perform its logic again to determine all the proper node colours.
+	- If blocks must be directed make sure that output nodes do not connect to other blocks' output nodes.
+
+Block Symbols:
+--------------
+	- Blocks will either be drawn using the internal functions, or it will be done with png/jpg images
+	- Blocks drawn with internal functions would probably be faster - and cooler :P
+	- Drawing could be done using simple shapes and lines
+	- Each Block would have a function associated with it.
+	- It could then be referenced by the block object and read during the render() phase
+
+System Inputs:
+--------------
+	- Either do a Click-n-Point or a Drag-n-Drop style
+	- For movement and placement - No logic is done - Only collision detection
+	- Use same floorplan as with wire search
+	- Figure out a way to determine mouse position for clicking and object placement
+	- Mouse is also the primary way to select nodes.
+
+Main Menu:
+----------
+	- Needs its own graphical Render functions
+	- Needs its own logic
+	- Figure out way to do menus - Either through functions or possibly built in
+	- Incorporate Level Select into similar point
+
+Score Menu:
+-----------
+	- More of a subset of the Grid Screen
+	- Tally score and compare to high scores
+	- Have buttons to return to main menu and level select
+	 

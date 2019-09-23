@@ -1,0 +1,29 @@
+Command line:
+   digclock_testb_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  52956
+
+Tue Jan 29 16:36:35 2013
+
+
+ Elaboration Time: 0.0312 sec
+
+ Current Memory Usage: 491.168 Meg
+
+ Total Signals          : 117
+ Total Nets             : 128
+ Total Signal Drivers   : 49
+ Total Blocks           : 26
+ Total Primitive Blocks : 16
+ Total Processes        : 37
+ Total Traceable Variables  : 42
+ Total Scalar Nets and Variables : 640
+Total Line Count : 160
+
+ Total Simulation Time: 0.0312 sec
+
+ Current Memory Usage: 491.168 Meg
+
+Tue Jan 29 16:49:39 2013
+

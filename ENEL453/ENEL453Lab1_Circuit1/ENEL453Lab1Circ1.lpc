@@ -1,0 +1,14 @@
+# ENEL453Lab1Circ1.lpc  
+#   The constraints in this file were created simply to be viewed.  
+#   If you wish to use these constraints, please copy them into your  
+#   project's constraint file. If you do not have a project constraints  
+#   file yet, please use the "Project->New Source" menu to create one.
+
+
+
+#pin2ucf - Fri Jan 18 14:59:03 2013
+#The following constraints were newly added
+NET "A" LOC = M12;
+NET "B" LOC = N13;
+NET "X" LOC = M13;
+NET "Y" LOC = N14;

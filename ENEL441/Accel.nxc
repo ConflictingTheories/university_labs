@@ -1,0 +1,80 @@
+float Uf = 100;
+
+
+
+float U = 0;
+
+float dU = 70; //du/dt (change in speed/ms)
+
+float a = 0;
+
+float v0 = 0;
+
+float v = 0;
+
+float dv = 0;
+
+
+
+float x = 0;
+
+float dx = 0;
+
+
+
+float dt = 1;
+
+float t = 0;
+
+
+
+float c = 5.5;
+
+
+
+task main()
+
+{
+
+	t = CurrentTick(); // Get Start Time t0
+
+
+
+	while( U < Uf )
+
+	{
+
+		U += dU;
+
+
+
+		dx = c*3.14159*(MotorRotationCount(OUT_A) - x)/360;
+
+
+
+		x = x + dx;
+
+
+
+		dv = dx/(dt/1000) - v;
+
+
+
+		v = dx/(dt/1000);
+
+
+
+		a = dv/(dt/1000);
+		
+		if( U > 100 )
+      U = 100;
+
+    OnFwdReg(OUT_A, U, OUT_REGMODE_IDLE);
+    
+    NumOut(15, LCD_LINE1, dU);
+
+		Wait( dt - (CurrentTick() - t) );
+
+	}
+
+}

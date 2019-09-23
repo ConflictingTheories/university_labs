@@ -1,0 +1,242 @@
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.8)  7 NOV 2012 20:10
+entering extended mode
+ %&-line parsing enabled.
+**"Notes So far.tex"
+(./Notes So far.tex
+LaTeX2e <2009/09/24>
+Babel <v3.8l> and hyphenation patterns for english, usenglishmax, dumylang, noh
+yphenation, loaded.
+(/usr/share/texmf-texlive/tex/latex/base/article.cls
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/share/texmf-texlive/tex/latex/base/size10.clo
+File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/share/texmf-texlive/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf-texlive/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+(/usr/share/texmf-texlive/tex/latex/graphics/graphics.sty
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf-texlive/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/etc/texmf/tex/latex/config/graphics.cfg
+File: graphics.cfg 2009/08/28 v1.8 graphics configuration of TeX Live
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+
+(/usr/share/texmf-texlive/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2010/03/12 v0.04p Graphics/color for pdfTeX
+\Gread@gobject=\count87
+))
+\Gin@req@height=\dimen103
+\Gin@req@width=\dimen104
+)
+(./Notes So far.aux)
+\openout1 = `"Notes So far.aux"'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+ (/usr/share/texmf-texlive/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count88
+\scratchdimen=\dimen105
+\scratchbox=\box26
+\nofMPsegments=\count89
+\nofMParguments=\count90
+\everyMPshowfont=\toks15
+\MPscratchCnt=\count91
+\MPscratchDim=\dimen106
+\MPnumerator=\count92
+\everyMPtoPDFconversion=\toks16
+)
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 14.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 14.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 14.
+ [1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 24.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 24.
+
+Underfull \hbox (badness 10000) in paragraph at lines 60--62
+
+ []
+
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 83--86
+
+ []
+
+[3] <PlantModel.pdf, id=19, 794.97pt x 614.295pt>
+File: PlantModel.pdf Graphic file (type pdf)
+ <use PlantModel.pdf>
+Overfull \hbox (53.33858pt too wide) in paragraph at lines 92--93
+[][] 
+ []
+
+[4 <./PlantModel.pdf>] <ControllerModel.pdf, id=39, 794.97pt x 614.295pt>
+File: ControllerModel.pdf Graphic file (type pdf)
+
+<use ControllerModel.pdf>
+Overfull \hbox (53.33858pt too wide) in paragraph at lines 99--100
+[][] 
+ []
+
+[5 <./ControllerModel.pdf>] <Compensator.pdf, id=59, 794.97pt x 614.295pt>
+File: Compensator.pdf Graphic file (type pdf)
+
+<use Compensator.pdf>
+Overfull \hbox (53.33858pt too wide) in paragraph at lines 106--107
+[][] 
+ []
+
+[6 <./Compensator.pdf>] <PlantSystem.pdf, id=79, 794.97pt x 614.295pt>
+File: PlantSystem.pdf Graphic file (type pdf)
+
+<use PlantSystem.pdf>
+Overfull \hbox (53.33858pt too wide) in paragraph at lines 113--114
+[][] 
+ []
+
+[7 <./PlantSystem.pdf>]
+
+pdfTeX warning: pdflatex (file ./DemoModelPID.pdf): PDF inclusion: found PDF ve
+rsion <1.5>, but at most version <1.4> allowed
+<DemoModelPID.pdf, id=100, 614.295pt x 794.97pt>
+File: DemoModelPID.pdf Graphic file (type pdf)
+ <use DemoModelPID.pdf>
+Overfull \hbox (72.75256pt too wide) in paragraph at lines 121--122
+[][] 
+ []
+
+
+LaTeX Warning: Float too large for page by 14.5468pt on input line 123.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<MotorConstantGraph.png, id=102, 378.66469pt x 310.91156pt>
+File: MotorConstantGraph.png Graphic file (type png)
+
+<use MotorConstantGraph.png>
+Underfull \hbox (badness 10000) in paragraph at lines 129--138
+
+ []
+
+
+Overfull \hbox (53.33858pt too wide) in paragraph at lines 129--138
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 129--138
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 129--138
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 129--138
+
+ []
+
+[8 <./MotorConstantGraph.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 142--145
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 142--145
+
+ []
+
+<ComparitiveAnalysis.png, id=106, 565.312pt x 444.059pt>
+File: ComparitiveAnalysis.png Graphic file (type png)
+
+<use ComparitiveAnalysis.png>
+Overfull \hbox (53.33858pt too wide) in paragraph at lines 146--153
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 146--153
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 146--153
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 146--153
+
+ []
+
+<ChosenSimComparitive.png, id=107, 415.151pt x 449.68pt>
+File: ChosenSimComparitive.png Graphic file (type png)
+
+<use ChosenSimComparitive.png>
+Overfull \hbox (53.33858pt too wide) in paragraph at lines 153--160
+[] 
+ []
+
+[9 <./ComparitiveAnalysis.png (PNG copy)>] [10 <./ChosenSimComparitive.png (PNG
+ copy)>] [11 <./DemoModelPID.pdf>] (./Notes So far.aux) ) 
+Here is how much of TeX's memory you used:
+ 949 strings out of 495061
+ 12208 string characters out of 1182621
+ 62504 words of memory out of 3000000
+ 4167 multiletter control sequences out of 15000+50000
+ 7587 words of font info for 27 fonts, out of 3000000 for 9000
+ 28 hyphenation exceptions out of 8191
+ 25i,6n,19p,307b,213s stack positions out of 5000i,500n,10000p,200000b,50000s
+</usr/share/texmf-texl
+ive/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-texlive/fonts/t
+ype1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-texlive/fonts/type1/public
+/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/c
+m/cmmi7.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb>
+</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/
+texmf-texlive/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-texlive
+/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on "Notes So far.pdf" (11 pages, 803317 bytes).
+PDF statistics:
+ 158 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 41 words of extra memory for PDF output out of 10000 (max. 10000000)
+

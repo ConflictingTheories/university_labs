@@ -1,0 +1,112 @@
+ENEL 487 - Quiz #1 Review
+-------------------------
+
+### TASK LIST ###:
+------------------
+
+ 	- Review Chapter 1
+ 	
+ 	- Review Chapter 2
+ 	
+ 	- Review Chapter 3
+ 	
+ 	- Do Problem Set #1
+
+
+
+### NOTES ###:
+--------------
+
+#Chapter 1:
+-----------
+
+	- #TODO
+
+
+#Chapter 2:
+-----------
+
+	Phasors:
+	--------
+		- Phasors can be used to describe Voltages and Currents and Loads.
+		- Phasors are Characterized by Two Parameters:
+			- Maximum Value (Magnitude)
+			- Phase Angle
+		- Phasors also have an "Effective Value" which is the RMS value of the voltage.
+			ie:
+					V_rms 	= sqrt( (1/2)*( V_max(cos(wt+d))^2 + 		V_max(sin(wt+d) )^2 ) )
+							= sqrt( (1/2)*(V_max)^2 )
+							= V_max/sqrt(2)
+		- Euler's identity is useful
+				e^(jx) = cos(x) + jsin(x)
+		- It can be used to express the voltage via the real part
+		- There are three ways to express voltage:
+				1 - Exponential - V * exp(jx)
+				2 - Polar - V{x
+				3 - Rectangular - V * cos(x) + jV *sin(x)
+
+	Complex Loads:
+	--------------
+	A Complex load can be expressed as a mixture of Resistive and Reactive Loads.
+
+		Z = R + jX
+
+		R - Resistive Load
+		X - Reactive Load
+
+		Reactive Loads:
+		---------------
+		Reactive Loads represent the inductive/capactive parts of the circuit.
+			- Capacitive 	- X_c	= 1/(wC)
+			- Inductive		- X_l	= wL
+
+		Capacitive Loads:
+		-----------------
+		Capacitive loads are loads in which the current leads the voltage by 90 degrees. 
+
+			Rectangular:
+			- Z_c = -jX_c = -j(1/(wC)) = 1/(jwC)
+
+			Polar:
+			- Z_c = (1/wC){-90
+
+		Inductive Loads:
+		----------------
+		Inductive Loads are loads in which the voltages leads the current by 90 degrees.
+
+			Rectangular:
+			- Z_l = jX_l = jwL
+
+			Polar:
+			- Z_l = wL{90
+
+	Complex Power:
+	--------------
+	Complex Power is expressed as:
+
+		S 	= 	VI*	
+			= 	(V{x)(I{y)* 
+			= 	VI{(x-y)
+			=	VI*cos(x-y) + 	jVI*sin(x-y)
+			=		P 		+ 	jQ
+
+
+		Real Power:
+		-----------
+		Real Power is expressed as:
+
+			P =	VI*cos(x-y)
+
+
+		Reactive Power:
+		---------------
+		Reactive power is expressed as:
+
+			Q = VI*sin(x-y)
+
+
+
+#Chapter 3:
+-----------
+
+	- #TODO

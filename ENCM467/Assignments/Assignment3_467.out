@@ -1,0 +1,123 @@
+
+**** 02/06/13 12:56:16 *********** Evaluation PSpice (Nov 1999) **************
+
+ * C:\Users\Kyle\Documents\Assignment3_467.sch
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+* Schematics Version 9.1 - Web Update 1
+* Wed Feb 06 12:56:15 2013
+
+
+
+** Analysis setup **
+.DC LIN V_V2 0v 3v .1 
+.LIB "C:\Users\Kyle\Documents\Assignment3_467.lib"
+
+
+* From [PSPICE NETLIST] section of pspiceev.ini:
+.lib "nom.lib"
+
+.INC "Assignment3_467.net"
+
+**** INCLUDING Assignment3_467.net ****
+* Schematics Netlist *
+
+
+
+V_V3         $N_0001 0 3V
+V_V2         $N_0002 0 1V
+V_V1         $N_0002 $N_0003 DC 0V AC .1V 
+R_R1         $N_0004 $N_0001  1k  
+M_M1         $N_0004 $N_0003 0 0 MbreakN           
+
+**** RESUMING Assignment3_467.cir ****
+.INC "Assignment3_467.als"
+
+
+
+**** INCLUDING Assignment3_467.als ****
+* Schematics Aliases *
+
+.ALIASES
+V_V3            V3(+=$N_0001 -=0 )
+V_V2            V2(+=$N_0002 -=0 )
+V_V1            V1(+=$N_0002 -=$N_0003 )
+R_R1            R1(1=$N_0004 2=$N_0001 )
+M_M1            M1(d=$N_0004 g=$N_0003 s=0 b=0 )
+.ENDALIASES
+
+
+**** RESUMING Assignment3_467.cir ****
+.probe
+
+
+.END
+
+WARNING -- Library file C:\Users\Kyle\Documents\Assignment3_467.lib has changed since index file Assignment3_467.ind was created.
+WARNING -- The timestamp changed from Wed Feb 06 12:55:35 2013 to Wed Feb 06 12:56:13 2013.
+Making new index file Assignment3_467.ind for library file Assignment3_467.lib
+Index has 1 entries from 1 file(s).
+
+**** 02/06/13 12:56:16 *********** Evaluation PSpice (Nov 1999) **************
+
+ * C:\Users\Kyle\Documents\Assignment3_467.sch
+
+
+ ****     MOSFET MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               MbreakN         
+               NMOS            
+       LEVEL    1            
+           L  500.000000E-09 
+           W  100.000000E-06 
+          LD   80.000000E-09 
+         VTO     .7          
+          KP  134.288900E-06 
+       GAMMA     .45         
+         PHI     .9          
+      LAMBDA     .1          
+          IS   10.000000E-15 
+          JS   10.000000E-09 
+          PB     .9          
+        PBSW     .9          
+          CJ  560.000000E-06 
+        CJSW    3.500000E-12 
+          MJ     .45         
+        MJSW     .2          
+        CGSO    0            
+        CGDO  400.000000E-12 
+        CGBO    0            
+        NSUB  900.000000E+12 
+         TOX    9.000000E-09 
+          XJ    0            
+          UO  350            
+       UCRIT   10.000000E+03 
+      DIOMOD    1            
+         VFB    0            
+        LETA    0            
+        WETA    0            
+          U0    0            
+        TEMP    0            
+         VDD    0            
+       XPART    0            
+
+
+
+          JOB CONCLUDED
+
+          TOTAL JOB TIME             .02
+

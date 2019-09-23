@@ -1,0 +1,21 @@
+xst -intstyle ise -ifn "H:/ENEL453/Lab1Circ2/seqCirc.xst" -ofn "H:/ENEL453/Lab1Circ2/seqCirc.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc3s100e-cp132-5 seqCirc.ngc seqCirc.ngd  
+map -intstyle ise -p xc3s100e-cp132-5 -cm area -ir off -pr off -c 100 -o seqCirc_map.ncd seqCirc.ngd seqCirc.pcf 
+par -w -intstyle ise -ol high -t 1 seqCirc_map.ncd seqCirc.ncd seqCirc.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml seqCirc.twx seqCirc.ncd -o seqCirc.twr seqCirc.pcf 
+bitgen -intstyle ise -f seqCirc.ut seqCirc.ncd 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc3s100e-cp132-5 seqCirc.ngc seqCirc.ngd  
+map -intstyle ise -p xc3s100e-cp132-5 -cm area -ir off -pr off -c 100 -o seqCirc_map.ncd seqCirc.ngd seqCirc.pcf 
+par -w -intstyle ise -ol high -t 1 seqCirc_map.ncd seqCirc.ncd seqCirc.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml seqCirc.twx seqCirc.ncd -o seqCirc.twr seqCirc.pcf 
+pin2ucf seqCirc.ncd -o H:/ENEL453/Lab1Circ2/Lab1Circ2Cont.ucf -r seqCirc.lck 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Lab1Circ2Cont.ucf -p xc3s100e-cp132-5 seqCirc.ngc seqCirc.ngd  
+map -intstyle ise -p xc3s100e-cp132-5 -cm area -ir off -pr off -c 100 -o seqCirc_map.ncd seqCirc.ngd seqCirc.pcf 
+par -w -intstyle ise -ol high -t 1 seqCirc_map.ncd seqCirc.ncd seqCirc.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml seqCirc.twx seqCirc.ncd -o seqCirc.twr seqCirc.pcf -ucf Lab1Circ2Cont.ucf 
+pin2ucf -o seqCirc_locked.ucf seqCirc.ncd 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc Lab1Circ2Cont.ucf -p xc3s100e-cp132-5 seqCirc.ngc seqCirc.ngd  
+map -intstyle ise -p xc3s100e-cp132-5 -cm area -ir off -pr off -c 100 -o seqCirc_map.ncd seqCirc.ngd seqCirc.pcf 
+par -w -intstyle ise -ol high -t 1 seqCirc_map.ncd seqCirc.ncd seqCirc.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml seqCirc.twx seqCirc.ncd -o seqCirc.twr seqCirc.pcf -ucf Lab1Circ2Cont.ucf 
+bitgen -intstyle ise -f seqCirc.ut seqCirc.ncd 

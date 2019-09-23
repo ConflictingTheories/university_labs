@@ -1,0 +1,29 @@
+Command line:
+   BrokenCircCode_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  54244
+
+Fri Jan 18 15:37:59 2013
+
+
+ Elaboration Time: 0.0156 sec
+
+ Current Memory Usage: 491.659 Meg
+
+ Total Signals          : 3
+ Total Nets             : 3
+ Total Signal Drivers   : 2
+ Total Blocks           : 2
+ Total Primitive Blocks : 2
+ Total Processes        : 2
+ Total Traceable Variables  : 8
+ Total Scalar Nets and Variables : 363
+Total Line Count : 4
+
+ Total Simulation Time: 0.0468 sec
+
+ Current Memory Usage: 491.659 Meg
+
+Fri Jan 18 15:52:21 2013
+

@@ -1,0 +1,29 @@
+Command line:
+   testb_lab1cir1_isim_translate.exe
+     -simmode  gui
+     -simrunnum  2
+     -socket  54122
+
+Fri Jan 18 14:50:29 2013
+
+
+ Elaboration Time: 0.0156 sec
+
+ Current Memory Usage: 491.381 Meg
+
+ Total Signals          : 63
+ Total Nets             : 43
+ Total Signal Drivers   : 20
+ Total Blocks           : 22
+ Total Primitive Blocks : 14
+ Total Processes        : 20
+ Total Traceable Variables  : 132
+ Total Scalar Nets and Variables : 4621
+Total Line Count : 98
+
+ Total Simulation Time: 0.124801 sec
+
+ Current Memory Usage: 491.381 Meg
+
+Fri Jan 18 15:16:52 2013
+

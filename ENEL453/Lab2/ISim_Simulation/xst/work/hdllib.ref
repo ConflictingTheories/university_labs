@@ -1,0 +1,14 @@
+EN clockdivider NULL C:/temp/Lab2/Clockdivider.vhd sub00/vhpl02 1359503766
+EN bcdto7seg NULL C:/temp/Lab2/ISim_Simulation/BCDto7seg.vhd sub00/vhpl12 1359503772
+EN clocksystem NULL C:/temp/Lab2/digitclock60min.vhd sub00/vhpl10 1359503776
+AR bcdto7seg behavioral C:/temp/Lab2/ISim_Simulation/BCDto7seg.vhd sub00/vhpl13 1359503773
+EN digitscanner NULL C:/temp/Lab2/digitscanner.vhd sub00/vhpl08 1359503774
+EN gencounter NULL C:/temp/Lab2/Gencounter.vhd sub00/vhpl00 1359503764
+AR clocksystem behavioral C:/temp/Lab2/digitclock60min.vhd sub00/vhpl11 1359503777
+AR digitmux behavioral C:/temp/Lab2/digitmux.vhd sub00/vhpl07 1359503771
+AR gencounter behavioral C:/temp/Lab2/Gencounter.vhd sub00/vhpl01 1359503765
+EN digitmux NULL C:/temp/Lab2/digitmux.vhd sub00/vhpl06 1359503770
+AR min60sec60 behavioral C:/temp/Lab2/min60sec60.vhd sub00/vhpl05 1359503769
+AR clockdivider behavioral C:/temp/Lab2/Clockdivider.vhd sub00/vhpl03 1359503767
+EN min60sec60 NULL C:/temp/Lab2/min60sec60.vhd sub00/vhpl04 1359503768
+AR digitscanner behavioral C:/temp/Lab2/digitscanner.vhd sub00/vhpl09 1359503775

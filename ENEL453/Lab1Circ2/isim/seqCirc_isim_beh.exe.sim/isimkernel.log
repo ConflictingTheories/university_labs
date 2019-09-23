@@ -1,0 +1,10 @@
+Command line:
+   seqCirc_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  58786
+
+Tue Jan 22 13:02:59 2013
+
+
+ Elaboration Time: 0.046801 sec

@@ -1,0 +1,2 @@
+vhdl isim_temp "../Gencounter.vhd"
+vhdl isim_temp "gencounter_testb.vhd"

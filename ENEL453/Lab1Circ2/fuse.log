@@ -1,0 +1,19 @@
+Running: C:\Xilinx\14.2\ISE_DS\ISE\bin\nt\unwrapped\fuse.exe -intstyle ise -incremental -o H:/ENEL453/Lab1Circ2/seqCirc_isim_beh.exe -prj H:/ENEL453/Lab1Circ2/seqCirc_beh.prj work.seqCirc 
+ISim P.28xd (signature 0x1048c146)
+Number of CPUs detected in this system: 4
+Turning on mult-threading, number of parallel sub-compilation jobs: 8 
+Determining compilation order of HDL files
+Parsing VHDL file "H:/ENEL453/Lab1Circ2/seqCirc.vhd" into library work
+Starting static elaboration
+Completed static elaboration
+Fuse Memory Usage: 106200 KB
+Fuse CPU Usage: 233 ms
+Compiling package standard
+Compiling package std_logic_1164
+Compiling architecture behavioral of entity seqcirc
+Time Resolution for simulation is 1ps.
+Waiting for 1 sub-compilation(s) to finish...
+Compiled 3 VHDL Units
+Built simulation executable H:/ENEL453/Lab1Circ2/seqCirc_isim_beh.exe
+Fuse Memory Usage: 134792 KB
+Fuse CPU Usage: 280 ms

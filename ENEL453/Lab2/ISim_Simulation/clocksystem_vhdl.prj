@@ -1,0 +1,7 @@
+vhdl work "C:\temp\Lab2\Gencounter.vhd"
+vhdl work "C:\temp\Lab2\min60sec60.vhd"
+vhdl work "C:\temp\Lab2\ISim_Simulation\BCDto7seg.vhd"
+vhdl work "C:\temp\Lab2\digitscanner.vhd"
+vhdl work "C:\temp\Lab2\digitmux.vhd"
+vhdl work "C:\temp\Lab2\Clockdivider.vhd"
+vhdl work "C:\temp\Lab2\digitclock60min.vhd"

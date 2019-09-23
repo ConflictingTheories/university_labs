@@ -1,0 +1,53 @@
+ENCM 511 - Component Overview
+-----------------------------
+
+MICROPROCESSOR
+--------------
+	
+	CPU
+		-
+
+	CCU
+		-
+
+	ALU
+		-
+
+	REGISTERS
+		
+		- DATA REGISTERS
+		
+		- POINTER REGISTERS
+
+	BUSSES
+
+		- ADDRESS BUS
+
+			- 32/64 Bit wide
+
+		- CONTROL BUS
+
+			- TIMING SIGNALS
+
+			- READY SIGNALS
+
+			- INTERRUPTS
+
+		- DATA BUS
+
+			- 8/16/32/128 Bit Wide
+
+PERIPHERALS
+-----------
+
+	BOOT ROM
+
+	INSTRUCTIONAL ROM
+
+	DATA RAM
+
+	TRANSDUCERS
+
+	UART/SPI/PPI
+
+	

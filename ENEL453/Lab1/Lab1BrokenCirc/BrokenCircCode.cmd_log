@@ -1,0 +1,1 @@
+xst -intstyle ise -ifn "H:/ENEL453/Lab1BrokenCirc/BrokenCircCode.xst" -ofn "H:/ENEL453/Lab1BrokenCirc/BrokenCircCode.syr" 

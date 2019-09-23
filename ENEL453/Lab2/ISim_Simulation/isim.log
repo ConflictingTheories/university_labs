@@ -1,0 +1,33 @@
+ISim log file
+Running: H:\ENEL453\Lab2\ISim_Simulation\digclock_testb_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb H:/ENEL453/Lab2/ISim_Simulation/digclock_testb_isim_beh.wdb 
+ISim P.28xd (signature 0x1048c146)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+Time resolution is 1 ps
+# onerror resume
+# wave add /
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+at 5 ns(1), Instance /digclock_testb/uut/clkdiv/div25/ : Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+at 15 ns(1), Instance /digclock_testb/uut/clkdiv/div25/ : Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+at 25 ns(1), Instance /digclock_testb/uut/clkdiv/div25/ : Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+at 35 ns(1), Instance /digclock_testb/uut/clkdiv/div25/ : Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+at 45 ns(1), Instance /digclock_testb/uut/clkdiv/div25/ : Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+at 55 ns(1), Instance /digclock_testb/uut/clkdiv/div25/ : Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+at 65 ns(1), Instance /digclock_testb/uut/clkdiv/div25/ : Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+at 75 ns(1), Instance /digclock_testb/uut/clkdiv/div25/ : Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+at 85 ns(1), Instance /digclock_testb/uut/clkdiv/div25/ : Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+at 95 ns(1), Instance /digclock_testb/uut/clkdiv/div25/ : Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+at 105 ns(1), Instance /digclock_testb/uut/clkdiv/div25/ : Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+at 115 ns(1), Instance /digclock_testb/uut/clkdiv/div25/ : Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+at 125 ns(1), Instance /digclock_testb/uut/clkdiv/div25/ : Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+at 135 ns(1), Instance /digclock_testb/uut/clkdiv/div25/ : Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+at 145 ns(1), Instance /digclock_testb/uut/clkdiv/div25/ : Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+at 155 ns(1), Instance /digclock_testb/uut/clkdiv/div25/ : Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+at 165 ns(1), Instance /digclock_testb/uut/clkdiv/div25/ : Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+at 175 ns(1), Instance /digclock_testb/uut/clkdiv/div25/ : Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+at 185 ns(1), Instance /digclock_testb/uut/clkdiv/div25/ : Warning: NUMERIC_STD."=": metavalue detected, returning FALSE
+at 195 ns(1), Instance /digclock_testb/uut/clkdiv/div25/ : Warning: NUMERIC_STD."=": metavalue detected, returning FALSE

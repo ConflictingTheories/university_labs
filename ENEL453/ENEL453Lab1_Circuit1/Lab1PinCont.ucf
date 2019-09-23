@@ -1,0 +1,9 @@
+
+#NET "A" LOC = P11
+NET "A" LOC = P11;
+#NET "B" LOC = L3
+NET "B" LOC = L3;
+#NET "X" LOC = LD0
+NET "X" LOC = m5;
+#NET "Y" LOC = LD1
+NET "Y" LOC = m11;

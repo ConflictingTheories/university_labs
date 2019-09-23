@@ -1,0 +1,2 @@
+vhdl work "netgen/translate/clocksystem_translate.vhd"
+vhdl work "digclock_testb.vhd"

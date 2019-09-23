@@ -1,0 +1,23 @@
+* C:\Users\Kyle\Documents\University\ENCM467\Assignments\ENCM467ASSN1.sch
+
+* Schematics Version 9.1 - Web Update 1
+* Thu Jan 17 17:24:19 2013
+
+
+
+** Analysis setup **
+.ac DEC 101 10 100Meg
+.LIB "C:\Users\Kyle\Documents\University\ENCM467\Assignments\ENCM467ASSN1.lib"
+
+
+* From [PSPICE NETLIST] section of pspiceev.ini:
+.lib "nom.lib"
+
+.INC "ENCM467ASSN1.net"
+.INC "ENCM467ASSN1.als"
+
+
+.probe
+
+
+.END

@@ -1,0 +1,201 @@
+% Letter Sized Paper, 12pt Font, Article Formatting
+\documentclass[]{article}
+
+% Include Package for Image Inclusion & define image types
+\usepackage{graphicx}
+\DeclareGraphicsExtensions{.pdf,.png,.jpg,.jpeg}
+
+% Title Page Setup
+\title{\textbf{ENEL 469 Assignment \#1}}
+\author{Kyle Derby MacInnis \\ Lab Section: B03 \\ Professor: Dr. Mintchev}
+\date{October 1, 2012}
+
+% Document Markup Begins
+\begin{document}
+
+% Insert Title Page
+\maketitle
+
+\pagebreak
+
+% Assignment Objective Statement and Overview
+\section*{Assignment Objective}
+{
+	The purpose of this this assignment is to design and analyze a full-wave rectifier circuit which will then become the focus of the upcoming lab. The use of CAD software will be allowed for the purpose of this lab and any-and-all use of the software will be recorded appropriately. The rectifier will have the following specifications:
+	\\ \\
+	Transformer:
+	\\	\indent Primary winding $V_{1_{rms}} = 110V, 60Hz$
+	\\	\indent Secondary winding $V_{2_{rms}} = 18V, 60Hz$
+	\\ \\
+	Load Resistance:
+	\\	\indent $R_L = 1.0k\Omega$
+	\\ \\
+	The diodes that will be used in this assignment will all be of the 1N4005 variety.
+}
+
+% Original Stock Design for Full-Wave Bridge Rectifier Circuit
+\section*{Original Circuit Design}
+{
+	The following is the basic filtered full-wave bridge rectifier circuit which will be explored in this assignment:
+	% Include Stock Circuit Image File
+	\begin{figure}[here]
+		\includegraphics[width=14cm]{AssignmentStockDesign}
+		\caption{Full-Wave Bridge Rectifier with Filtering Capacitor}
+	\end{figure}
+}
+
+\pagebreak
+
+% Assignment Question Sections and Associated Solutions
+\section*{Assignment Questions/Solutions\footnote{Unless otherwise noted, all work assumes the piece-wise constant voltage-drop model of the diode.}}
+{
+	\subsubsection*{1\indent Calculate the peak value of the supply voltage $V_s$.}
+	{
+		Given that the input voltage is a standard household supply, and assuming an ideal transformer is present in the circuit, we can make the following statements:
+
+		\begin{equation} 
+			{ \indent V_{s_{rms}} = \frac{V_{s_{max}}}{\sqrt{2}} = 18\mathrm{V} } 
+		\end{equation}
+		\\ \\
+		\begin{equation}
+			{ \indent V_{s_{max}} = V_{s_{rms}}\sqrt{2}  = 18\sqrt{2}V \approx \textbf{25.46V} }
+		\end{equation}
+		\\ \\
+		The result for the approximate peak voltage at the supply terminals is 25.46V.
+	}
+	\\
+	\subsubsection*{2\indent Determine the load current $I_L$. For the diodes used, identify from a relevant data-sheet the voltage drop on them and their internal resistance $r_d$ for the 1.0k$\Omega$ load and thus calculate the peak rectified voltage $V_P$.}
+	{
+		$\indent $AC Supply Voltage:		
+		\begin{equation}
+			{ \indent v_s = V_{s_{max}}\sin{(\omega t + \theta_0)}, \indent \theta_0 = 0^\circ }
+		\end{equation}
+		
+		Current Relationships using KCL:
+		\begin{equation} 
+			{ \indent i_D = i_L + i_C }
+		\end{equation}
+
+		Output Voltage using KVL:
+		\begin{equation}
+			{ \indent v_o = v_s - 2(i_Dr_d + V_0) }
+		\end{equation}
+		\\
+		\noindent The load current can then be ascertained via use of Ohm's Law:
+		\begin{equation}
+			{ \indent i_L = \frac{v_o}{R_L} = \frac{V_{s_{max}}\sin{(\omega t) - 2(i_Cr_d + V_0)}}{R_L + 2r_d} }
+		\end{equation}
+		\\ \\
+		
+		
+\pagebreak
+		
+		
+		\noindent With the aide of an appropriate data-sheet\cite{1N4005_Data} for the 1N4005 diode, the following values were identified at 25$^\circ$C:
+		\\ \\
+		\indent Internal Voltage Drop:
+		\begin{equation}
+			{ \indent V_0 = 0.6V }
+		\end{equation}
+		\\
+		\indent Internal Resistance:
+		\begin{equation}
+			{ \indent r_d = \frac{\Delta I_F}{\Delta V_F} = \frac{1000 - 87.8}{1470 - 740} = 1.25\Omega }
+		\end{equation}
+		\\
+		The peak rectified voltage, $V_P$, occurs when $i_C = 0$ and thus the whole current flows across $R_L$:
+		\begin{equation} 
+			i_C = 0 \indent \rightarrow \indent i_D = i_L = I_{L_{max}}
+		\end{equation}
+		\\
+		\begin{equation} 
+			V_P = I_{L_{max}} R_L = \frac{V_{s_{max}} - 2V_0}{R_L + 2r_d}R_L = \frac{25.46 - 1.2}{1002.5}(1000) = 24.20V
+		\end{equation}
+		\\
+		The peak rectified voltage for this circuit is 24.20V.
+	}
+	\\
+	\subsubsection*{3\indent Calculate the filtering capacitor $C$ that will result in a ripple voltage of $V_r <= 1V$, and the fraction of the 360-degree wave cycle during which the diodes are conducting. Calculate the minimal and maximal output voltage $V_o$.}
+	{
+		The ripple voltage is the difference between the minimum and maximum output voltages:
+		\begin{equation} 
+			\indent V_r = V_P - V_{min} \le  1
+		\end{equation}
+		\\
+		\begin{equation} 
+			\indent V_{min} = I_{L_{min}}R_L = V_p - V_r \ge 23.20V
+		\end{equation}
+		\\
+		\begin{equation} 
+			\indent I_{L_{min}} = \frac{V_{min}}{R_L} = \frac{23.20}{1000} = 23.20mA
+		\end{equation}
+		\\
+		The capacitor will charge up with the forward current, $I_C$, and then once it becomes charged and the load current begins to drop, the capacitor will discharge across the load and lessen the ripple. This will continue until the load current reaches its lowest value at which point the capacitor begins to recharge again. The time that it discharges is approximately half of the supply period:
+		\begin{equation}
+			T_c = \frac{T_s}{2} = \frac{1}{120}sec
+		\end{equation}
+		\\
+		The charge that is discharged(lost) in this time is approximately(assuming the load current doesn't change too much):
+			\[ \Delta Q \approx I_{L_{avg}}T_c = \frac{(I_{L_{max}}-I_{L_{min}})}{2}T_c \]
+		\\
+		This along with the basic relationship between charge, capacitance, and change in voltage:
+			\[ \Delta Q = C \Delta V = CV_r \]
+		\\
+		Gives us:
+			\[ CV_r = I_{L_{avg}}T_c \indent\rightarrow\indent C = \frac{I_{L_{avg}}T_c}{V_r} \]
+			\\
+			\[ C = \frac{0.0237(\frac{1}{120})}{1} \approx 198\mu F \]
+		\\
+		Now that we know $C$ we can figure out the conduction range (when $i_C > 0$ the diode conducts):
+			\[ \frac{\theta_{cond}}{2\pi} = \frac{\Delta t}{T_c}\]
+	}
+	\\
+	\subsubsection*{4\indent Calculate the Peak Inverse Voltage (PIV). Compare the calculated PIV with the maximal PIV value from the datasheet of this particular type of diodes. Verify that the calculated PIV (plus the necessary safety margin of 50\%) is below the maximal PIV value for this diode.}
+	{
+	}
+
+	\subsubsection*{5\indent Calculate the average diode current $i_{Dav}$. Why is the calculated $i_{Dav}$ is higher than the load current $I_L$?}
+	{
+	}
+	
+	\subsubsection*{6\indent Calculate the peak diode current $i_{Dmax}$. Make sure it does not exceed the maximal peak diode current for 1N4005. What is the safety margin between the two currents? Why $i_{Dmax}$ is approximately twice the value of $i_{Dav}$?}
+	{
+	}
+
+	\subsubsection*{7\indent Now change the capacitor determined in Section 3 to two smaller standard values and to two larger standard values, and document in a table the change in the ripples. Determine and document the PIV, $i_{Dav}$, $I_L$, and $i_{Dmax}$ (Sections 4 to 6) in each case. Which is the best filtering capacitor to be used for the 1.0k$\Omega$ load that was able to maintain the average output voltage level unchanged and below the ripple level required in Section 3?}
+	{
+	}
+
+	\subsubsection*{8\indent With the optimal capacitor determined in Section 7, change the load resistor to two smaller standard values (e.g. 500$\Omega$ and 250$\Omega$) and two standard larger values (e.g. 2k$\Omega$ and 10k$\Omega$) and document in a table the changes in the ripples observed. Determine and document the PIV, $i_{Dav}$, $I_L$, and $i_{Dmax}$ (Sections 4 to 6) in each case.}
+	{
+	}
+
+	\subsubsection*{9\indent Present time-domain waveform plots of your final design and a Bode plot (with the optimal capacitor found in section 7 with a load resistor of 1k$\Omega$. Explain why does the Bode plot look that way.}
+	{
+	}
+}
+
+\pagebreak
+
+% Final and Optimized Design for Full-Wave Bridge Rectifier Circuit
+\section*{Final Design}
+{
+	The final and optimized circuit design resulting from the calculations presented:
+	\\
+	% Include Final Circuit Design with all Relevant Values
+	%\includegraphics[width=14cm]{AssignmentFinalDesign}
+}
+
+% Concluding Statements and Remarks
+\section*{Conclusion}
+{
+}
+
+\pagebreak
+
+% Bibliographical References (Style and File)
+\bibliographystyle{plain}
+\bibliography{ENEL469Assignment1.bib}
+
+% End of Document Markup
+\end{document}

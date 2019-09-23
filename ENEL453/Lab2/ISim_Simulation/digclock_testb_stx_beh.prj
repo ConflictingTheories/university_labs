@@ -1,0 +1,8 @@
+vhdl isim_temp "../Gencounter.vhd"
+vhdl isim_temp "../min60sec60.vhd"
+vhdl isim_temp "BCDto7seg.vhd"
+vhdl isim_temp "../digitscanner.vhd"
+vhdl isim_temp "../digitmux.vhd"
+vhdl isim_temp "../Clockdivider.vhd"
+vhdl isim_temp "../digitclock60min.vhd"
+vhdl isim_temp "digclock_testb.vhd"

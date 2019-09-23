@@ -1,0 +1,572 @@
+/*
+** ADSP-BF533 linker description file generated on Nov 06, 2014 at 16:05:58.
+*/
+/*
+** Copyright (C) 2000-2014 Analog Devices Inc., All Rights Reserved.
+**
+** This file is generated automatically based upon the options selected
+** in the System Configuration utility. Changes to the LDF configuration
+** should be made by modifying the appropriate options rather than editing
+** this file. To access the System Configuration utility, double-click the
+** system.svc file from a navigation view.
+**
+** Custom additions can be inserted within the user-modifiable sections,
+** these are bounded by comments that start with "$VDSG". Only changes
+** placed within these sections are preserved when this file is re-generated.
+**
+** Product      : CrossCore Embedded Studio 1.1.0.0
+** Tool Version : 6.0.3.2
+*/
+
+ARCHITECTURE(ADSP-BF533)
+
+/*
+** Define a linked objects list.
+*/
+$OBJECTS = 
+    "app_startup.doj"
+
+/*$VDSG<insert-user-objects-at-beginning>                       */
+/* Text inserted between these $VDSG comments will be preserved */
+/*$VDSG<insert-user-objects-at-beginning>                       */
+
+   ,$COMMAND_LINE_OBJECTS
+   ,"app_cplbtab.doj"
+   ,crtn532.doj
+
+/*$VDSG<insert-user-objects-at-end>                             */
+/* Text inserted between these $VDSG comments will be preserved */
+/*$VDSG<insert-user-objects-at-end>                             */
+
+   ;
+
+/*
+** Define a linked library list.
+*/
+$LIBRARIES = 
+
+/*$VDSG<insert-user-libraries-at-beginning>                     */
+/* Text inserted between these $VDSG comments will be preserved */
+/*$VDSG<insert-user-libraries-at-beginning>                     */
+
+    libcc.dlb
+   ,libio.dlb
+   ,libc.dlb
+   ,librt_fileio.dlb
+   ,libcpp.dlb
+   ,libdsp.dlb
+   ,libetsi.dlb
+   ,libssl.dlb
+   ,libdrv.dlb
+   ,libdyn.dlb
+   ,libsmall.dlb
+   ,libevent.dlb
+   ,libprofile.dlb
+   ,libosal_noos.dlb
+
+/*$VDSG<insert-user-libraries-at-end>                           */
+/* Text inserted between these $VDSG comments will be preserved */
+/*$VDSG<insert-user-libraries-at-end>                           */
+
+   ;
+
+/*
+** List of all objects and libraries.
+*/
+$OBJS_LIBS = 
+
+/*$VDSG<insert-objects-libraries-start>                         */
+/* Text inserted between these $VDSG comments will be preserved */
+/*$VDSG<insert-objects-libraries-start>                         */
+
+    $OBJECTS, $LIBRARIES
+
+/*$VDSG<insert-objects-libraries-end>                           */
+/* Text inserted between these $VDSG comments will be preserved */
+/*$VDSG<insert-objects-libraries-end>                           */
+
+   ;
+
+/*
+** List of objects and libraries which prefer internal memory as
+** specified by prefersMem attribute.
+*/
+$OBJS_LIBS_INTERNAL = 
+
+/*$VDSG<insert-libraries-internal>                              */
+/* Text inserted between these $VDSG comments will be preserved */
+/*$VDSG<insert-libraries-internal>                              */
+
+    $OBJS_LIBS{prefersMem("internal")}
+
+/*$VDSG<insert-libraries-internal-end>                          */
+/* Text inserted between these $VDSG comments will be preserved */
+/*$VDSG<insert-libraries-internal-end>                          */
+
+   ;
+
+/*
+** List of objects and libraries which don't have a preference for
+** external memory as specified by prefersMem attribute.
+*/
+$OBJS_LIBS_NOT_EXTERNAL = 
+
+/*$VDSG<insert-libraries-not-external>                          */
+/* Text inserted between these $VDSG comments will be preserved */
+/*$VDSG<insert-libraries-not-external>                          */
+
+    $OBJS_LIBS{!prefersMem("external")}
+
+/*$VDSG<insert-libraries-not-external-end>                      */
+/* Text inserted between these $VDSG comments will be preserved */
+/*$VDSG<insert-libraries-not-external-end>                      */
+
+   ;
+
+/*
+** Determine which start label to use and its location
+*/
+
+/*$VDSG<insert-user-macros>                                     */
+/* Text inserted between these $VDSG comments will be preserved */
+/*$VDSG<insert-user-macros>                                     */
+
+#if !defined(START_ADDR)
+#define START_ADDR  0xFFA00000 /* reset address */
+#endif
+#if !defined(START_SYM)
+  #define START_SYM start
+#endif
+
+
+/*$VDSG<customize-async-macros>                                 */
+/* This code is preserved if the LDF is re-generated.           */
+
+#define ASYNC0_MEMTYPE ROM
+#define ASYNC1_MEMTYPE ROM
+#define ASYNC2_MEMTYPE ROM
+#define ASYNC3_MEMTYPE ROM
+
+/*$VDSG<customize-async-macros>                                 */
+
+
+MEMORY
+{
+/*
+** ADSP-BF533 MEMORY MAP.
+**
+** 0xFFE00000 - 0xFFFFFFFF  Core MMR registers (2MB)
+** 0xFFC00000 - 0xFFDFFFFF  System MMR registers (2MB)
+** 0xFFB01000 - 0xFFBFFFFF  Reserved
+** 0xFFB00000 - 0xFFB00FFF  Scratch SRAM (4K)
+** 0xFFA14000 - 0xFFAFFFFF  Reserved
+** 0xFFA10000 - 0xFFA13FFF  Code SRAM / cache (16K)
+** 0xFFA00000 - 0xFFA0FFFF  Code SRAM (64K)
+** 0xFF908000 - 0xFF9FFFFF  Reserved
+** 0xFF904000 - 0xFF907FFF  Data Bank B SRAM / cache (16K)
+** 0xFF900000 - 0xFF903FFF  Data Bank B SRAM (16K)
+** 0xFF808000 - 0xFF8FFFFF  Reserved
+** 0xFF804000 - 0xFF807FFF  Data Bank A SRAM / cache (16K)
+** 0xFF800000 - 0xFF803FFF  Data Bank A SRAM (16K)
+** 0xEF000000 - 0xFF7FFFFF  Reserved
+** 0x20400000 - 0xEEFFFFFF  Reserved
+** 0x20300000 - 0x203FFFFF  ASYNC MEMORY BANK 3 (1MB)
+** 0x20200000 - 0x202FFFFF  ASYNC MEMORY BANK 2 (1MB)
+** 0x20100000 - 0x201FFFFF  ASYNC MEMORY BANK 1 (1MB)
+** 0x20000000 - 0x200FFFFF  ASYNC MEMORY BANK 0 (1MB)
+** 0x00000000 - 0x04000000  EZ-Kit SDRAM MEMORY (32MB/64MB)
+** 0x00000000 - 0x07FFFFFF  SDRAM MEMORY (16MB - 128MB)
+**
+** Notes:
+** 0xFF807FEF-0xFF807FFF Required by boot-loader.
+*/
+
+   MEM_L1_SCRATCH          { TYPE(RAM) START(0xFFB00000) END(0xFFB00FFF) WIDTH(8) }
+   MEM_L1_CODE_CACHE       { TYPE(RAM) START(0xFFA10000) END(0xFFA13FFF) WIDTH(8) }
+   MEM_L1_CODE             { TYPE(RAM) START(0xFFA00000) END(0xFFA0FFFF) WIDTH(8) }
+   MEM_L1_DATA_B           { TYPE(RAM) START(0xFF900000) END(0xFF907FFF) WIDTH(8) }
+   MEM_L1_DATA_A           { TYPE(RAM) START(0xFF800000) END(0xFF807FFF) WIDTH(8) }
+
+   /*
+   ** The flash memory connected to the ADSP-BF533 EZ-KIT is implemented
+   ** with two dual-bank flash memory devices. These devices include
+   ** primary and secondary flash memory as well as internal SRAM and
+   ** registers. Primary flash memory totals 2 Mbytes mapped into two
+   ** separate asynchronous memory banks, 1 Mbyte each. Secondary flash
+   ** memory, along with SRAM and registers, occupies the third bank of
+   ** asynchronous memory space.
+   */
+
+   MEM_ASYNC3              { TYPE(ASYNC3_MEMTYPE) START(0x20300000) END(0x203FFFFF) WIDTH(8) }
+   MEM_ASYNC2              { TYPE(ASYNC2_MEMTYPE) START(0x20200000) END(0x202FFFFF) WIDTH(8) }
+   MEM_ASYNC1              { TYPE(ASYNC1_MEMTYPE) START(0x20100000) END(0x201FFFFF) WIDTH(8) }
+   MEM_ASYNC0              { TYPE(ASYNC0_MEMTYPE) START(0x20000000) END(0x200FFFFF) WIDTH(8) }
+   
+   /*$VDSG<insert-new-memory-segments>                          */
+   /* Text inserted between these $VDSG comments will be preserved */
+   /*$VDSG<insert-new-memory-segments>                          */
+   
+} /* MEMORY */
+
+PROCESSOR p0
+{
+   OUTPUT($COMMAND_LINE_OUTPUT_FILE)
+   RESOLVE(START_SYM, START_ADDR)
+   KEEP(START_SYM, _main)
+   
+   /*$VDSG<insert-user-ldf-commands>                            */
+   /* Text inserted between these $VDSG comments will be preserved */
+   /*$VDSG<insert-user-ldf-commands>                            */
+   
+   SECTIONS
+   {
+      /* Workaround for hardware errata 05-00-0189 and 05-00-0310 -
+      ** "Speculative (and fetches made at boundary of reserved memory
+      ** space) for instruction or data fetches may cause false
+      ** protection exceptions" and "False hardware errors caused by
+      ** fetches at the boundary of reserved memory ".
+      **
+      ** Done by avoiding use of 76 bytes from at the end of blocks
+      ** that are adjacent to reserved memory. Workaround is enabled
+      ** for appropriate silicon revisions (-si-revision switch).
+      */
+      RESERVE(___wab0=MEMORY_END(MEM_L1_SCRATCH) - 75, ___l0 = 76)
+      RESERVE(___wab2=MEMORY_END(MEM_L1_CODE) - 75, ___l2 = 76)
+      RESERVE(___wab3=MEMORY_END(MEM_L1_DATA_B) - 75, ___l3 = 76)
+      RESERVE(___wab4=MEMORY_END(MEM_L1_DATA_A) - 75, ___l4 = 76)
+      RESERVE(___wab5=MEMORY_END(MEM_ASYNC3) - 75, ___l5 = 76)
+      
+      /*$VDSG<insert-new-sections-at-the-start>                 */
+      /* Text inserted between these $VDSG comments will be preserved */
+      /*$VDSG<insert-new-sections-at-the-start>                 */
+      
+      #define DEF_SECTION_QUAL /* None, rely on load-time initialization. */
+      scratchpad NO_INIT
+      {
+         INPUT_SECTION_ALIGN(4)
+         
+         /*$VDSG<insert-input-sections-at-the-start-of-scratchpad>  */
+         /* Text inserted between these $VDSG comments will be preserved */
+         /*$VDSG<insert-input-sections-at-the-start-of-scratchpad>  */
+         
+         INPUT_SECTIONS($OBJS_LIBS(L1_scratchpad))
+         
+         /*$VDSG<insert-input-sections-at-the-end-of-scratchpad>  */
+         /* Text inserted between these $VDSG comments will be preserved */
+         /*$VDSG<insert-input-sections-at-the-end-of-scratchpad>  */
+         
+      } > MEM_L1_SCRATCH
+      
+      scratchpad_stack_heap NO_INIT
+      {
+         INPUT_SECTION_ALIGN(4)
+         
+         /*$VDSG<insert-input-sections-at-the-start-of-scratchpad_stack_heap>  */
+         /* Text inserted between these $VDSG comments will be preserved */
+         /*$VDSG<insert-input-sections-at-the-start-of-scratchpad_stack_heap>  */
+         
+      } > MEM_L1_SCRATCH
+      
+      
+      /*$VDSG<insert-new-sections-after-SCRATCH>                */
+      /* Text inserted between these $VDSG comments will be preserved */
+      /*$VDSG<insert-new-sections-after-SCRATCH>                */
+      
+      L1_code DEF_SECTION_QUAL
+      {
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS($OBJS_LIBS(L1_code cplb_code cplb noncache_code))
+         
+         /*$VDSG<insert-input-sections-at-the-start-of-l1_code>  */
+         /* Text inserted between these $VDSG comments will be preserved */
+         /*$VDSG<insert-input-sections-at-the-start-of-l1_code>  */
+         
+         INPUT_SECTIONS($OBJS_LIBS_INTERNAL(program))
+         INPUT_SECTIONS($OBJS_LIBS_NOT_EXTERNAL(program))
+         INPUT_SECTIONS($OBJS_LIBS(program))
+         
+         /*$VDSG<insert-input-sections-at-the-end-of-l1_code>   */
+         /* Text inserted between these $VDSG comments will be preserved */
+         /*$VDSG<insert-input-sections-at-the-end-of-l1_code>   */
+         
+      } > MEM_L1_CODE
+      
+      L1_code_cache NO_INIT
+      {
+         INPUT_SECTION_ALIGN(4)
+         ___l1_code_cache = 1; /* Instruction cache is enabled. */
+      } > MEM_L1_CODE_CACHE
+      
+      L1_data_a_prio0 DEF_SECTION_QUAL
+      {
+         INPUT_SECTION_ALIGN(4)
+         ___l1_data_cache_a = 0; /* DATA A cache is not enabled. */
+         RESERVE(heaps_and_stack_in_L1_data_a, heaps_and_stack_in_L1_data_a_length = 6144, 4)
+         EXECUTABLE_NAME(__executable_name)
+         INPUT_SECTIONS($OBJS_LIBS(L1_data_a))
+         
+         /*$VDSG<insert-input-sections-at-the-start-of-L1_data_a_prio0>  */
+         /* Text inserted between these $VDSG comments will be preserved */
+         /*$VDSG<insert-input-sections-at-the-start-of-L1_data_a_prio0>  */
+         
+         INPUT_SECTIONS($OBJS_LIBS(L1_data cplb_data))
+         
+         /*$VDSG<insert-input-sections-at-the-end-of-L1_data_a_prio0>  */
+         /* Text inserted between these $VDSG comments will be preserved */
+         /*$VDSG<insert-input-sections-at-the-end-of-L1_data_a_prio0>  */
+         
+      } > MEM_L1_DATA_A
+      
+      L1_data_a_bsz_prio0 ZERO_INIT
+      {
+         INPUT_SECTION_ALIGN(4)
+         
+         /*$VDSG<insert-input-sections-at-the-start-of-L1_data_a_bsz_prio0>  */
+         /* Text inserted between these $VDSG comments will be preserved */
+         /*$VDSG<insert-input-sections-at-the-start-of-L1_data_a_bsz_prio0>  */
+         
+         INPUT_SECTIONS($OBJS_LIBS(L1_bsz_a L1_bsz))
+         
+         /*$VDSG<insert-input-sections-at-the-end-of-L1_data_a_bsz_prio0>  */
+         /* Text inserted between these $VDSG comments will be preserved */
+         /*$VDSG<insert-input-sections-at-the-end-of-L1_data_a_bsz_prio0>  */
+         
+         
+         /*$VDSG<insert-input-sections-at-the-start-of-bsz_L1_data_a>  */
+         /* Text inserted between these $VDSG comments will be preserved */
+         /*$VDSG<insert-input-sections-at-the-start-of-bsz_L1_data_a>  */
+         
+      } > MEM_L1_DATA_A
+      
+      L1_data_a_no_init_prio0 NO_INIT
+      {
+         INPUT_SECTION_ALIGN(4)
+         
+         /*$VDSG<insert-input-sections-at-the-start-of-L1_data_a_no_init_prio0>  */
+         /* Text inserted between these $VDSG comments will be preserved */
+         /*$VDSG<insert-input-sections-at-the-start-of-L1_data_a_no_init_prio0>  */
+         
+         INPUT_SECTIONS($OBJS_LIBS(L1_noinit_data_a L1_noinit_data))
+         
+         /*$VDSG<insert-input-sections-at-the-end-of-L1_data_a_no_init_prio0>  */
+         /* Text inserted between these $VDSG comments will be preserved */
+         /*$VDSG<insert-input-sections-at-the-end-of-L1_data_a_no_init_prio0>  */
+         
+      } > MEM_L1_DATA_A
+      
+      L1_data_a_prio3 DEF_SECTION_QUAL
+      {
+         INPUT_SECTION_ALIGN(4)
+         
+         /*$VDSG<insert-input-sections-at-the-start-of-L1_data_a_prio3>  */
+         /* Text inserted between these $VDSG comments will be preserved */
+         /*$VDSG<insert-input-sections-at-the-start-of-L1_data_a_prio3>  */
+         
+         INPUT_SECTIONS($OBJS_LIBS(data1 voldata constdata))
+         INPUT_SECTIONS($OBJS_LIBS(vtbl .edt .cht .rtti))
+         
+         /*$VDSG<insert-input-sections-at-the-end-of-L1_data_a_prio3>  */
+         /* Text inserted between these $VDSG comments will be preserved */
+         /*$VDSG<insert-input-sections-at-the-end-of-L1_data_a_prio3>  */
+         
+      } > MEM_L1_DATA_A
+      
+      L1_data_a_bsz_prio3 ZERO_INIT
+      {
+         INPUT_SECTION_ALIGN(4)
+         
+         /*$VDSG<insert-input-sections-at-the-start-of-L1_data_a_bsz_prio3>  */
+         /* Text inserted between these $VDSG comments will be preserved */
+         /*$VDSG<insert-input-sections-at-the-start-of-L1_data_a_bsz_prio3>  */
+         
+         INPUT_SECTIONS($OBJS_LIBS(bsz))
+         
+         /*$VDSG<insert-input-sections-at-the-end-of-L1_data_a_bsz_prio3>  */
+         /* Text inserted between these $VDSG comments will be preserved */
+         /*$VDSG<insert-input-sections-at-the-end-of-L1_data_a_bsz_prio3>  */
+         
+      } > MEM_L1_DATA_A
+      
+      L1_data_a_no_init_prio3 NO_INIT
+      {
+         INPUT_SECTION_ALIGN(4)
+         
+         /*$VDSG<insert-input-sections-at-the-start-of-L1_data_a_no_init_prio3>  */
+         /* Text inserted between these $VDSG comments will be preserved */
+         /*$VDSG<insert-input-sections-at-the-start-of-L1_data_a_no_init_prio3>  */
+         
+         INPUT_SECTIONS($OBJS_LIBS(noinit_data))
+         
+         /*$VDSG<insert-input-sections-at-the-end-of-L1_data_a_no_init_prio3>  */
+         /* Text inserted between these $VDSG comments will be preserved */
+         /*$VDSG<insert-input-sections-at-the-end-of-L1_data_a_no_init_prio3>  */
+         
+      } > MEM_L1_DATA_A
+      
+      stack_and_heap_L1_data_a NO_INIT
+      {
+         INPUT_SECTION_ALIGN(4)
+         
+         /*$VDSG<insert-input-sections-at-the-start-of-stack_and_heap_L1_data_a>  */
+         /* Text inserted between these $VDSG comments will be preserved */
+         /*$VDSG<insert-input-sections-at-the-start-of-stack_and_heap_L1_data_a>  */
+         
+         RESERVE_EXPAND(heaps_and_stack_in_L1_data_a, heaps_and_stack_in_L1_data_a_length, 0, 4)
+         ldf_stack_space = heaps_and_stack_in_L1_data_a;
+         ldf_stack_end = (ldf_stack_space + (((heaps_and_stack_in_L1_data_a_length * 2048) / 6144) - 4)) & 0xfffffffc;
+         CoffeePot1_space = ldf_stack_end + 4;
+         CoffeePot1_end = (CoffeePot1_space + (((heaps_and_stack_in_L1_data_a_length * 2048) / 6144) - 4)) & 0xfffffffc;
+         CoffeePot1_length = CoffeePot1_end - CoffeePot1_space;
+         CoffeePot3_space = CoffeePot1_space + CoffeePot1_length + 4;
+         CoffeePot3_end = (CoffeePot3_space + (((heaps_and_stack_in_L1_data_a_length * 2048) / 6144) - 4)) & 0xfffffffc;
+         CoffeePot3_length = CoffeePot3_end - CoffeePot3_space;
+      } > MEM_L1_DATA_A
+      
+      L1_data_b_prio0 DEF_SECTION_QUAL
+      {
+         INPUT_SECTION_ALIGN(4)
+         ___l1_data_cache_b = 0; /* DATA B cache is not enabled. */
+         RESERVE(heaps_and_stack_in_L1_data_b, heaps_and_stack_in_L1_data_b_length = 6144, 4)
+         INPUT_SECTIONS($OBJS_LIBS(L1_data_b))
+         
+         /*$VDSG<insert-input-sections-at-the-start-of-L1_data_b_prio0>  */
+         /* Text inserted between these $VDSG comments will be preserved */
+         /*$VDSG<insert-input-sections-at-the-start-of-L1_data_b_prio0>  */
+         
+         INPUT_SECTIONS($OBJS_LIBS(L1_data cplb_data))
+         
+         /*$VDSG<insert-input-sections-at-the-end-of-L1_data_b_prio0>  */
+         /* Text inserted between these $VDSG comments will be preserved */
+         /*$VDSG<insert-input-sections-at-the-end-of-L1_data_b_prio0>  */
+         
+      } > MEM_L1_DATA_B
+      
+      L1_data_b_prio0_tables DEF_SECTION_QUAL
+      {
+         INPUT_SECTION_ALIGN(4)
+         FORCE_CONTIGUITY
+         
+         /*$VDSG<insert-input-sections-at-the-start-of-L1_data_b_prio0_tables>  */
+         /* Text inserted between these $VDSG comments will be preserved */
+         /*$VDSG<insert-input-sections-at-the-start-of-L1_data_b_prio0_tables>  */
+         
+         INPUT_SECTIONS($OBJS_LIBS(ctor))  /* global C++ constructors list */
+         INPUT_SECTIONS($OBJS_LIBS(ctorl)) /* NULL terminator for ctor     */
+         INPUT_SECTIONS($OBJS_LIBS(.gdt))  /* C++ exceptions data          */
+         INPUT_SECTIONS($OBJS_LIBS(.gdtl)) /* NULL terminator for .gdt     */
+         
+         /*$VDSG<insert-input-sections-at-the-end-of-L1_data_b_prio0_tables>  */
+         /* Text inserted between these $VDSG comments will be preserved */
+         /*$VDSG<insert-input-sections-at-the-end-of-L1_data_b_prio0_tables>  */
+         
+      } > MEM_L1_DATA_B
+      
+      L1_data_b_bsz_prio0 ZERO_INIT
+      {
+         INPUT_SECTION_ALIGN(4)
+         
+         /*$VDSG<insert-input-sections-at-the-start-of-L1_data_b_bsz_prio0>  */
+         /* Text inserted between these $VDSG comments will be preserved */
+         /*$VDSG<insert-input-sections-at-the-start-of-L1_data_b_bsz_prio0>  */
+         
+         INPUT_SECTIONS($OBJS_LIBS(L1_bsz_b L1_bsz))
+         
+         /*$VDSG<insert-input-sections-at-the-end-of-L1_data_b_bsz_prio0>  */
+         /* Text inserted between these $VDSG comments will be preserved */
+         /*$VDSG<insert-input-sections-at-the-end-of-L1_data_b_bsz_prio0>  */
+         
+      } > MEM_L1_DATA_B
+      
+      L1_data_b_no_init_prio0 NO_INIT
+      {
+         INPUT_SECTION_ALIGN(4)
+         
+         /*$VDSG<insert-input-sections-at-the-start-of-L1_data_b_no_init_prio0>  */
+         /* Text inserted between these $VDSG comments will be preserved */
+         /*$VDSG<insert-input-sections-at-the-start-of-L1_data_b_no_init_prio0>  */
+         
+         INPUT_SECTIONS($OBJS_LIBS(L1_noinit_data_b L1_noinit_data))
+         
+         /*$VDSG<insert-input-sections-at-the-end-of-L1_data_b_no_init_prio0>  */
+         /* Text inserted between these $VDSG comments will be preserved */
+         /*$VDSG<insert-input-sections-at-the-end-of-L1_data_b_no_init_prio0>  */
+         
+      } > MEM_L1_DATA_B
+      
+      L1_data_b_prio3 DEF_SECTION_QUAL
+      {
+         INPUT_SECTION_ALIGN(4)
+         
+         /*$VDSG<insert-input-sections-at-the-start-of-L1_data_b_prio3>  */
+         /* Text inserted between these $VDSG comments will be preserved */
+         /*$VDSG<insert-input-sections-at-the-start-of-L1_data_b_prio3>  */
+         
+         INPUT_SECTIONS($OBJS_LIBS(data1 voldata constdata))
+         INPUT_SECTIONS($OBJS_LIBS(vtbl .edt .cht .rtti))
+         
+         /*$VDSG<insert-input-sections-at-the-end-of-L1_data_b_prio3>  */
+         /* Text inserted between these $VDSG comments will be preserved */
+         /*$VDSG<insert-input-sections-at-the-end-of-L1_data_b_prio3>  */
+         
+      } > MEM_L1_DATA_B
+      
+      L1_data_b_bsz_prio3 ZERO_INIT
+      {
+         INPUT_SECTION_ALIGN(4)
+         
+         /*$VDSG<insert-input-sections-at-the-start-of-L1_data_b_bsz_prio3>  */
+         /* Text inserted between these $VDSG comments will be preserved */
+         /*$VDSG<insert-input-sections-at-the-start-of-L1_data_b_bsz_prio3>  */
+         
+         INPUT_SECTIONS($OBJS_LIBS(bsz))
+         
+         /*$VDSG<insert-input-sections-at-the-end-of-L1_data_b_bsz_prio3>  */
+         /* Text inserted between these $VDSG comments will be preserved */
+         /*$VDSG<insert-input-sections-at-the-end-of-L1_data_b_bsz_prio3>  */
+         
+      } > MEM_L1_DATA_B
+      
+      L1_data_b_no_init_prio3 NO_INIT
+      {
+         INPUT_SECTION_ALIGN(4)
+         
+         /*$VDSG<insert-input-sections-at-the-start-of-L1_data_b_no_init_prio3>  */
+         /* Text inserted between these $VDSG comments will be preserved */
+         /*$VDSG<insert-input-sections-at-the-start-of-L1_data_b_no_init_prio3>  */
+         
+         INPUT_SECTIONS($OBJS_LIBS(noinit_data))
+         
+         /*$VDSG<insert-input-sections-at-the-end-of-L1_data_b_no_init_prio3>  */
+         /* Text inserted between these $VDSG comments will be preserved */
+         /*$VDSG<insert-input-sections-at-the-end-of-L1_data_b_no_init_prio3>  */
+         
+      } > MEM_L1_DATA_B
+      
+      stack_and_heap_L1_data_b NO_INIT
+      {
+         INPUT_SECTION_ALIGN(4)
+         
+         /*$VDSG<insert-input-sections-at-the-start-of-stack_and_heap_L1_data_b>  */
+         /* Text inserted between these $VDSG comments will be preserved */
+         /*$VDSG<insert-input-sections-at-the-start-of-stack_and_heap_L1_data_b>  */
+         
+         RESERVE_EXPAND(heaps_and_stack_in_L1_data_b, heaps_and_stack_in_L1_data_b_length, 0, 4)
+         ldf_heap_space = heaps_and_stack_in_L1_data_b;
+         ldf_heap_end = (ldf_heap_space + (((heaps_and_stack_in_L1_data_b_length * 2048) / 6144) - 4)) & 0xfffffffc;
+         ldf_heap_length = ldf_heap_end - ldf_heap_space;
+         CoffeePot2_space = ldf_heap_end + 4;
+         CoffeePot2_end = (CoffeePot2_space + (((heaps_and_stack_in_L1_data_b_length * 2048) / 6144) - 4)) & 0xfffffffc;
+         CoffeePot2_length = CoffeePot2_end - CoffeePot2_space;
+         CoffeePot4_space = CoffeePot2_space + CoffeePot2_length + 4;
+         CoffeePot4_end = (CoffeePot4_space + (((heaps_and_stack_in_L1_data_b_length * 2048) / 6144) - 4)) & 0xfffffffc;
+         CoffeePot4_length = CoffeePot4_end - CoffeePot4_space;
+      } > MEM_L1_DATA_B
+      
+      
+      /*$VDSG<insert-new-sections-at-the-end>                   */
+      /* Text inserted between these $VDSG comments will be preserved */
+      /*$VDSG<insert-new-sections-at-the-end>                   */
+      
+   } /* SECTIONS */
+} /* p0 */
+

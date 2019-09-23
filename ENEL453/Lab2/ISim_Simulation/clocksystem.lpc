@@ -1,0 +1,24 @@
+# clocksystem.lpc  
+#   The constraints in this file were created simply to be viewed.  
+#   If you wish to use these constraints, please copy them into your  
+#   project's constraint file. If you do not have a project constraints  
+#   file yet, please use the "Project->New Source" menu to create one.
+
+
+
+#pin2ucf - Tue Jan 29 16:01:50 2013
+#The following constraints were newly added
+NET "anodeCtrl<0>" LOC = P63;
+NET "clk" LOC = P89;
+NET "anodeCtrl<1>" LOC = P65;
+NET "anodeCtrl<2>" LOC = P66;
+NET "anodeCtrl<3>" LOC = P67;
+NET "LEDsegments<0>" LOC = P53;
+NET "LEDsegments<1>" LOC = P54;
+NET "LEDsegments<2>" LOC = P60;
+NET "LEDsegments<3>" LOC = P58;
+NET "LEDsegments<4>" LOC = P57;
+NET "LEDsegments<5>" LOC = P61;
+NET "LEDsegments<6>" LOC = P62;
+NET "reset" LOC = P69;
+NET "freqsel" LOC = P68;

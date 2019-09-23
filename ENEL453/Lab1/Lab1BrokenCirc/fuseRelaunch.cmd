@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -o "H:/ENEL453/Lab1BrokenCirc/BrokenCircCode_isim_beh.exe" -prj "H:/ENEL453/Lab1BrokenCirc/BrokenCircCode_beh.prj" "work.BrokenCircCode" 

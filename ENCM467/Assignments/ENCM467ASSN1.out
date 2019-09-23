@@ -1,0 +1,148 @@
+
+**** 01/17/13 17:24:19 *********** Evaluation PSpice (Nov 1999) **************
+
+ * C:\Users\Kyle\Documents\University\ENCM467\Assignments\ENCM467ASSN1.sch
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+* Schematics Version 9.1 - Web Update 1
+* Thu Jan 17 17:24:19 2013
+
+
+
+** Analysis setup **
+.ac DEC 101 10 100Meg
+.LIB "C:\Users\Kyle\Documents\University\ENCM467\Assignments\ENCM467ASSN1.lib"
+
+
+* From [PSPICE NETLIST] section of pspiceev.ini:
+.lib "nom.lib"
+
+.INC "ENCM467ASSN1.net"
+
+**** INCLUDING ENCM467ASSN1.net ****
+* Schematics Netlist *
+
+
+
+R_R1         $N_0002 $N_0001  1k  
+V_V1         $N_0002 0 10V
+V_V2         $N_0003 0 DC 5V AC 1V pulse(0 10 0 10e-9 10e-9 10us 20us)
+C_C1         $N_0001 0  1n  
+M_M1         $N_0001 $N_0003 0 0 M4007N           
+
+**** RESUMING ENCM467ASSN1.cir ****
+.INC "ENCM467ASSN1.als"
+
+
+
+**** INCLUDING ENCM467ASSN1.als ****
+* Schematics Aliases *
+
+.ALIASES
+R_R1            R1(1=$N_0002 2=$N_0001 )
+V_V1            V1(+=$N_0002 -=0 )
+V_V2            V2(+=$N_0003 -=0 )
+C_C1            C1(1=$N_0001 2=0 )
+M_M1            M1(d=$N_0001 g=$N_0003 s=0 b=0 )
+.ENDALIASES
+
+
+**** RESUMING ENCM467ASSN1.cir ****
+.probe
+
+
+.END
+
+**** 01/17/13 17:24:19 *********** Evaluation PSpice (Nov 1999) **************
+
+ * C:\Users\Kyle\Documents\University\ENCM467\Assignments\ENCM467ASSN1.sch
+
+
+ ****     MOSFET MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               M4007N          
+               NMOS            
+       LEVEL    1            
+           L    8.000000E-06 
+           W  144.000000E-06 
+         VTO    1.3          
+          KP   20.540000E-06 
+       GAMMA    0            
+         PHI     .6          
+      LAMBDA     .015        
+          RD    1            
+          RS    1            
+          IS   10.000000E-15 
+          JS    0            
+          PB     .8          
+        PBSW     .8          
+         CBD    4.000000E-12 
+         CBS    4.000000E-12 
+          CJ    0            
+        CJSW    0            
+        CGSO    1.700000E-09 
+        CGDO    1.700000E-09 
+        CGBO    0            
+         TOX  300.000000E-09 
+          XJ    0            
+       UCRIT   10.000000E+03 
+      DIOMOD    1            
+         VFB    0            
+        LETA    0            
+        WETA    0            
+          U0    0            
+        TEMP    0            
+         VDD    0            
+       XPART    0            
+
+
+**** 01/17/13 17:24:19 *********** Evaluation PSpice (Nov 1999) **************
+
+ * C:\Users\Kyle\Documents\University\ENCM467\Assignments\ENCM467ASSN1.sch
+
+
+ ****     SMALL SIGNAL BIAS SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+($N_0001)    7.2004                   ($N_0002)   10.0000                       
+
+($N_0003)    5.0000                   
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1        -2.800E-03
+    V_V2         0.000E+00
+
+    TOTAL POWER DISSIPATION   2.80E-02  WATTS
+
+
+
+          JOB CONCLUDED
+
+          TOTAL JOB TIME             .02
+

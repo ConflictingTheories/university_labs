@@ -1,0 +1,8 @@
+* OrCAD Model Editor - Version 9.1
+
+*$
+.model M4007N nmos( Level=1 Tox=300n Uo=600 Kp=20.54u W=144u L=8u Vto=1.3 
++ Lambda=15m Cbd=4p Cbs=4p Cgdo=1.7n Cgso=1.7n Rs=1 Rd=1) 
+*$
++ Vto=1.3 Lambda=15m Cbd=4p Cbs=4p Cgdo=1.7n Cgso=1.7n Rs=1 Rd=1)
+*$

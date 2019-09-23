@@ -1,0 +1,88 @@
+ENCM 511 MIDTERM REVIEW
+-----------------------
+
+General Lab Knowledge:
+----------------------
+- Plug in 50 Pin Cable all the way otherwise switches read high.
+- Logic Station must be powered on, otherwise switches read high.
+- 
+
+Interrupt Testing:
+------------------
+- Clear ILAT and ensure no interrupts have been set.
+- Raise Interrupt you wish to test.
+- Check for Interrupt in ILAT
+- Compare ILAT with expected value
+
+OR if testing ISRs:
+- Clear ILAT and ensure no interrupts have been set.
+- Raise Interrupt you wish to test ISR of.
+- Design a check for ISR via globabl semaphores
+- Clear Interrupt in ISR if necessary
+- Compare Semaphore with expected value.
+
+
+General Assembly Knowledge:
+---------------------------
+- Watch out for non-volatile and volatile registers.
+- Remember if a subroutine calls another subroutine (ie. Not a leaf function), then make sure you are using non-volatile registers.
+- If a subroutine is a leaf function, it is fine to use volatile registers.
+- Parameters are passed based on the LINK and UNLINK instructions.
+- 
+
+Code Traps to Watch Out For:
+----------------------------
+
+##GLOBALS##:
+------------
+- When DECLARING a variable ".global" make sure you also DEFINE the
+variable itself. (eg. ".byte4 _MyVar = 0x0;")
+- When DECLARING a variable in CPP as a semaphore, make sure you only DEFINE it once, and any other files that need it reference an EXTERN DECLARATION. 
+	* eg. 	//- In Header File
+			extern volatile bool myBool;
+
+			//- In One Source File
+			#include "header file"
+			volatile bool myBool = false;
+
+			//- In Other Source Files
+			#include "header file"
+
+##STACK##:
+----------
+- When PUSHING things on the stack, make sure you decrement the SP before writing to it. (eg. "[--SP] = R4;")
+- When POPPING things from the stack, make sure you increment it after reading from it. (eg. "R4 = [SP++];")
+- PUSH before the LINK
+- POP after the UNLINK
+
+##SECTION##:
+------------
+- There are a few types of sections used in ASM:
+	* eg.	.section program;	// Used for Instructions
+			.section L1_data;	// Used for Variables in Memory
+
+##SUBROUTINE CALL##:
+--------------------
+- All code to be run from a call, must be written after the label
+- Any code not in that file must be referenced as an EXTERN
+- Code will return values into R0 when it returns
+- Code will read arguments from R0 to R3
+- When avoiding Name Mangling, use 'extern "C" bool myTest;' in CPP files
+	---------------ASM FILE---------------
+	* eg.	extern _MyCFunction;
+			//load any necessary arguments
+			//into volatile registers
+			CALL _MyCFunction;
+
+	-----------------H FILE---------------
+	* eg.	extern 'C' void MyCFunction();
+
+	---------------CPP FILE---------------
+	* eg.	void MyCFunction() { ... }
+
+
+Test Driven Development:
+------------------------
+
+- Test First Development: Design tests to check for customer requirements, then code.
+- Test Last Development: Design code up to customer requirements, then test afterwards.

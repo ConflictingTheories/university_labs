@@ -1,0 +1,29 @@
+Command line:
+   ENEL453Lab1Circ1_isim_beh.exe
+     -simmode  gui
+     -simrunnum  2
+     -socket  54106
+
+Fri Jan 18 14:39:49 2013
+
+
+ Elaboration Time: 0.0312 sec
+
+ Current Memory Usage: 491.266 Meg
+
+ Total Signals          : 4
+ Total Nets             : 4
+ Total Signal Drivers   : 2
+ Total Blocks           : 2
+ Total Primitive Blocks : 2
+ Total Processes        : 2
+ Total Traceable Variables  : 8
+ Total Scalar Nets and Variables : 364
+Total Line Count : 2
+
+ Total Simulation Time: 0.0312 sec
+
+ Current Memory Usage: 491.266 Meg
+
+Fri Jan 18 15:16:58 2013
+

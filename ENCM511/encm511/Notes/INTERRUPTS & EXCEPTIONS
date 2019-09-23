@@ -1,0 +1,8 @@
+// INTERRUPTS & EXCEPTIONS
+
+An interrupt is an event that changes normal processor instruction flow and is asynchronous to program flow. 
+
+In contrast, an exceptionis a soft-ware initiated event whose effects are synchronous to program flow.
+
+
+uTTCOS - Micro Time Triggered Cooperative Operating System

@@ -1,0 +1,21 @@
+Release 14.2 - netgen P.28xd (nt)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line: netgen -intstyle ise -rpw 100 -tpw 0 -ar Structure -tm
+clocksystem -w -dir netgen/translate -ofmt vhdl -sim clocksystem.ngd
+clocksystem_translate.vhd  
+
+Reading design 'clocksystem.ngd' ...
+Flattening design ...
+Processing design ... 
+  Preping design's networks ...
+  Preping design's macros ...
+Writing VHDL netlist
+'\\engfs.eng.ad.ucalgary.ca\home\kderbyma\ENEL453\Lab2\ISim_Simulation\netgen\tr
+anslate\clocksystem_translate.vhd' ...
+INFO:NetListWriters:635 - The generated VHDL netlist contains Xilinx SIMPRIM
+   simulation primitives and has to be used with SIMPRIM library for correct
+   compilation and simulation. 
+Number of warnings: 0
+Number of info messages: 1
+Total memory usage is 107316 kilobytes

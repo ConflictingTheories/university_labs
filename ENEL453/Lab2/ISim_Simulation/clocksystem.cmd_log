@@ -1,0 +1,90 @@
+xst -intstyle ise -ifn "H:/ENEL453/Lab2/ISim_Simulation/clocksystem.xst" -ofn "H:/ENEL453/Lab2/ISim_Simulation/clocksystem.syr" 
+xst -intstyle ise -ifn "H:/ENEL453/Lab2/ISim_Simulation/clocksystem.xst" -ofn "H:/ENEL453/Lab2/ISim_Simulation/clocksystem.syr" 
+xst -intstyle ise -ifn "H:/ENEL453/Lab2/ISim_Simulation/clocksystem.xst" -ofn "H:/ENEL453/Lab2/ISim_Simulation/clocksystem.syr" 
+xst -intstyle ise -ifn "H:/ENEL453/Lab2/ISim_Simulation/clocksystem.xst" -ofn "H:/ENEL453/Lab2/ISim_Simulation/clocksystem.syr" 
+xst -intstyle ise -ifn "H:/ENEL453/Lab2/ISim_Simulation/clocksystem.xst" -ofn "H:/ENEL453/Lab2/ISim_Simulation/clocksystem.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc3s100e-vq100-5 clocksystem.ngc clocksystem.ngd  
+map -intstyle ise -p xc3s100e-vq100-5 -cm area -ir off -pr off -c 100 -o clocksystem_map.ncd clocksystem.ngd clocksystem.pcf 
+par -w -intstyle ise -ol high -t 1 clocksystem_map.ncd clocksystem.ncd clocksystem.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml clocksystem.twx clocksystem.ncd -o clocksystem.twr clocksystem.pcf 
+pin2ucf -o clocksystem_locked.ucf clocksystem.ncd 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc3s100e-vq100-5 clocksystem.ngc clocksystem.ngd  
+map -intstyle ise -p xc3s100e-vq100-5 -cm area -ir off -pr off -c 100 -o clocksystem_map.ncd clocksystem.ngd clocksystem.pcf 
+par -w -intstyle ise -ol high -t 1 clocksystem_map.ncd clocksystem.ncd clocksystem.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml clocksystem.twx clocksystem.ncd -o clocksystem.twr clocksystem.pcf 
+netgen -intstyle ise -rpw 100 -tpw 0 -ar Structure -tm clocksystem -w -dir netgen/translate -ofmt vhdl -sim clocksystem.ngd clocksystem_translate.vhd 
+bitgen -intstyle ise -f clocksystem.ut clocksystem.ncd 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc DigitalClock.ucf -p xc3s100e-vq100-5 clocksystem.ngc clocksystem.ngd  
+map -intstyle ise -p xc3s100e-vq100-5 -cm area -ir off -pr off -c 100 -o clocksystem_map.ncd clocksystem.ngd clocksystem.pcf 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc DigitalClock.ucf -p xc3s100e-vq100-5 clocksystem.ngc clocksystem.ngd  
+map -intstyle ise -p xc3s100e-vq100-5 -cm area -ir off -pr off -c 100 -o clocksystem_map.ncd clocksystem.ngd clocksystem.pcf 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc DigitalClock.ucf -p xc3s100e-vq100-5 clocksystem.ngc clocksystem.ngd  
+map -intstyle ise -p xc3s100e-vq100-5 -cm area -ir off -pr off -c 100 -o clocksystem_map.ncd clocksystem.ngd clocksystem.pcf 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc DigitalClock.ucf -p xc3s100e-vq100-5 clocksystem.ngc clocksystem.ngd  
+map -intstyle ise -p xc3s100e-vq100-5 -cm area -ir off -pr off -c 100 -o clocksystem_map.ncd clocksystem.ngd clocksystem.pcf 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc DigitalClock.ucf -p xc3s100e-vq100-5 clocksystem.ngc clocksystem.ngd  
+map -intstyle ise -p xc3s100e-vq100-5 -cm area -ir off -pr off -c 100 -o clocksystem_map.ncd clocksystem.ngd clocksystem.pcf 
+xst -intstyle ise -ifn "H:/ENEL453/Lab2/ISim_Simulation/clocksystem.xst" -ofn "H:/ENEL453/Lab2/ISim_Simulation/clocksystem.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc DigitalClock.ucf -p xc3s100e-vq100-5 clocksystem.ngc clocksystem.ngd  
+map -intstyle ise -p xc3s100e-vq100-5 -cm area -ir off -pr off -c 100 -o clocksystem_map.ncd clocksystem.ngd clocksystem.pcf 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc3s100e-vq100-5 clocksystem.ngc clocksystem.ngd  
+map -intstyle ise -p xc3s100e-vq100-5 -cm area -ir off -pr off -c 100 -o clocksystem_map.ncd clocksystem.ngd clocksystem.pcf 
+par -w -intstyle ise -ol high -t 1 clocksystem_map.ncd clocksystem.ncd clocksystem.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml clocksystem.twx clocksystem.ncd -o clocksystem.twr clocksystem.pcf 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc3s100e-vq100-5 clocksystem.ngc clocksystem.ngd  
+map -intstyle ise -p xc3s100e-vq100-5 -cm area -ir off -pr off -c 100 -o clocksystem_map.ncd clocksystem.ngd clocksystem.pcf 
+par -w -intstyle ise -ol high -t 1 clocksystem_map.ncd clocksystem.ncd clocksystem.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml clocksystem.twx clocksystem.ncd -o clocksystem.twr clocksystem.pcf 
+bitgen -intstyle ise -f clocksystem.ut clocksystem.ncd 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc ClockUCF.ucf -p xc3s100e-vq100-5 clocksystem.ngc clocksystem.ngd  
+map -intstyle ise -p xc3s100e-vq100-5 -cm area -ir off -pr off -c 100 -o clocksystem_map.ncd clocksystem.ngd clocksystem.pcf 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc3s100e-vq100-5 clocksystem.ngc clocksystem.ngd  
+map -intstyle ise -p xc3s100e-vq100-5 -cm area -ir off -pr off -c 100 -o clocksystem_map.ncd clocksystem.ngd clocksystem.pcf 
+par -w -intstyle ise -ol high -t 1 clocksystem_map.ncd clocksystem.ncd clocksystem.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml clocksystem.twx clocksystem.ncd -o clocksystem.twr clocksystem.pcf 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc3s100e-vq100-5 clocksystem.ngc clocksystem.ngd  
+map -intstyle ise -p xc3s100e-vq100-5 -cm area -ir off -pr off -c 100 -o clocksystem_map.ncd clocksystem.ngd clocksystem.pcf 
+par -w -intstyle ise -ol high -t 1 clocksystem_map.ncd clocksystem.ncd clocksystem.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml clocksystem.twx clocksystem.ncd -o clocksystem.twr clocksystem.pcf 
+bitgen -intstyle ise -f clocksystem.ut clocksystem.ncd 
+xst -intstyle ise -ifn "H:/ENEL453/Lab2/ISim_Simulation/clocksystem.xst" -ofn "H:/ENEL453/Lab2/ISim_Simulation/clocksystem.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc digucf.ucf -p xc3s100e-vq100-5 clocksystem.ngc clocksystem.ngd  
+map -intstyle ise -p xc3s100e-vq100-5 -cm area -ir off -pr off -c 100 -o clocksystem_map.ncd clocksystem.ngd clocksystem.pcf 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc digucf.ucf -p xc3s100e-vq100-5 clocksystem.ngc clocksystem.ngd  
+map -intstyle ise -p xc3s100e-vq100-5 -cm area -ir off -pr off -c 100 -o clocksystem_map.ncd clocksystem.ngd clocksystem.pcf 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc3s100e-vq100-5 clocksystem.ngc clocksystem.ngd  
+map -intstyle ise -p xc3s100e-vq100-5 -cm area -ir off -pr off -c 100 -o clocksystem_map.ncd clocksystem.ngd clocksystem.pcf 
+par -w -intstyle ise -ol high -t 1 clocksystem_map.ncd clocksystem.ncd clocksystem.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml clocksystem.twx clocksystem.ncd -o clocksystem.twr clocksystem.pcf 
+xst -intstyle ise -ifn "H:/ENEL453/Lab2/ISim_Simulation/clocksystem.xst" -ofn "H:/ENEL453/Lab2/ISim_Simulation/clocksystem.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc digClockUCF.ucf -p xc3s100e-vq100-5 clocksystem.ngc clocksystem.ngd  
+map -intstyle ise -p xc3s100e-vq100-5 -cm area -ir off -pr off -c 100 -o clocksystem_map.ncd clocksystem.ngd clocksystem.pcf 
+xst -intstyle ise -ifn "H:/ENEL453/Lab2/ISim_Simulation/clocksystem.xst" -ofn "H:/ENEL453/Lab2/ISim_Simulation/clocksystem.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc digclockucf.ucf -p xc3s100e-vq100-5 clocksystem.ngc clocksystem.ngd  
+map -intstyle ise -p xc3s100e-vq100-5 -cm area -ir off -pr off -c 100 -o clocksystem_map.ncd clocksystem.ngd clocksystem.pcf 
+par -w -intstyle ise -ol high -t 1 clocksystem_map.ncd clocksystem.ncd clocksystem.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml clocksystem.twx clocksystem.ncd -o clocksystem.twr clocksystem.pcf -ucf digclockucf.ucf 
+bitgen -intstyle ise -f clocksystem.ut clocksystem.ncd 
+xst -intstyle ise -ifn "H:/ENEL453/Lab2/ISim_Simulation/clocksystem.xst" -ofn "H:/ENEL453/Lab2/ISim_Simulation/clocksystem.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc digclockucf.ucf -p xc3s100e-vq100-5 clocksystem.ngc clocksystem.ngd  
+map -intstyle ise -p xc3s100e-vq100-5 -cm area -ir off -pr off -c 100 -o clocksystem_map.ncd clocksystem.ngd clocksystem.pcf 
+par -w -intstyle ise -ol high -t 1 clocksystem_map.ncd clocksystem.ncd clocksystem.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml clocksystem.twx clocksystem.ncd -o clocksystem.twr clocksystem.pcf -ucf digclockucf.ucf 
+xst -intstyle ise -ifn "C:/temp/Lab2/ISim_Simulation/clocksystem.xst" -ofn "C:/temp/Lab2/ISim_Simulation/clocksystem.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc digclockucf.ucf -p xc3s100e-vq100-5 clocksystem.ngc clocksystem.ngd  
+map -intstyle ise -p xc3s100e-vq100-5 -cm area -ir off -pr off -c 100 -o clocksystem_map.ncd clocksystem.ngd clocksystem.pcf 
+par -w -intstyle ise -ol high -t 1 clocksystem_map.ncd clocksystem.ncd clocksystem.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml clocksystem.twx clocksystem.ncd -o clocksystem.twr clocksystem.pcf -ucf digclockucf.ucf 
+bitgen -intstyle ise -f clocksystem.ut clocksystem.ncd 
+xst -intstyle ise -ifn "C:/temp/Lab2/ISim_Simulation/clocksystem.xst" -ofn "C:/temp/Lab2/ISim_Simulation/clocksystem.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc digclockucf.ucf -p xc3s100e-cp132-5 clocksystem.ngc clocksystem.ngd  
+map -intstyle ise -p xc3s100e-cp132-5 -cm area -ir off -pr off -c 100 -o clocksystem_map.ncd clocksystem.ngd clocksystem.pcf 
+par -w -intstyle ise -ol high -t 1 clocksystem_map.ncd clocksystem.ncd clocksystem.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml clocksystem.twx clocksystem.ncd -o clocksystem.twr clocksystem.pcf -ucf digclockucf.ucf 
+bitgen -intstyle ise -f clocksystem.ut clocksystem.ncd 
+bitgen -intstyle ise -f clocksystem.ut clocksystem.ncd 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc DigitalClock.ucf -p xc3s100e-cp132-5 clocksystem.ngc clocksystem.ngd  
+map -intstyle ise -p xc3s100e-cp132-5 -cm area -ir off -pr off -c 100 -o clocksystem_map.ncd clocksystem.ngd clocksystem.pcf 
+par -w -intstyle ise -ol high -t 1 clocksystem_map.ncd clocksystem.ncd clocksystem.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml clocksystem.twx clocksystem.ncd -o clocksystem.twr clocksystem.pcf -ucf DigitalClock.ucf 
+bitgen -intstyle ise -f clocksystem.ut clocksystem.ncd 

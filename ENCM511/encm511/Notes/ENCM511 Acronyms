@@ -1,0 +1,37 @@
+ACRONYMS:
+---------
+
+uTTCOS - Micro Time Triggered Cooperative Operating System
+
+EVR - Event Vector Register
+
+TDD - Test Driven Development
+
+FIO_FLAG_D - Flag Data Register
+
+FIO_POLAR - Flag Polar Register
+
+FIO_INEN - Flag Input Enable Register
+
+FIO_DIR	- Flag Direction Register
+
+EBIU - External Bus Interface Unit
+
+GPIO - General Purpose Input/Output
+
+CPU - Central Processing Unit
+
+CCU - Central Communication Unit
+
+DAB - DMA Access Bus
+
+EAB - External Access Bus
+
+MMR - Memory Mapped Register
+
+DMA - Direct Memory Access
+
+P0 - Pointer Register 0
+
+p0 - Processor 0
+

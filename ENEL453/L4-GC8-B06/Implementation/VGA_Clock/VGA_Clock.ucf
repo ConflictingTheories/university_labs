@@ -1,0 +1,13 @@
+NET "red<0>" LOC = C14;
+NET "red<1>" LOC = D13;
+NET "red<2>" LOC = F13;
+NET "blue<0>" LOC = H13;
+NET "hsync" LOC = J14;
+NET "blue<1>" LOC = J13;
+NET "vsync" LOC = K13;
+NET "reset" LOC = G12;
+NET "green<0>" LOC = F14;
+NET "freqsel" LOC = P11;
+NET "green<1>" LOC = G13;
+NET "clk25" LOC = M6;
+NET "green<2>" LOC = G14;

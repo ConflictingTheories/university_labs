@@ -1,0 +1,86 @@
+COMS 363 - Final Report Survey Research Metrics
+-----------------------------------------------
+
+Quantifying Values:
+-------------------
+
+	1 - Strongly Disagree 	-	(0/4)
+	2 - Disagree			-	(1/4)
+	3 - Neutral				- 	(2/4)
+	4 - Agree				- 	(3/4)
+	5 - Strongly Agree		-	(4/4)
+
+
+Calculation:
+------------	
+	(i = 1 -> N) 
+
+		(1/N) * SUM[ P_i*W(P_i) ] = Score
+
+
+Quantified Data:
+----------------
+
+	2.1 - Website is Easily Identified as AAFS
+
+		|---------------------------------------------------|
+		| 	Choice 		|	# of People		|	Weighting	|
+		|---------------------------------------------------|
+		|		1 		| 	1 person		|		0		|
+		|		2 		| 	1 Person		| 		25 		|
+		|		3 		| 	1 Person		|		50 		|
+		|		4 		| 	6 Persons		|		75		|
+		|		5 		| 	5 Persons		| 		100		|
+		|---------------------------------------------------|
+		
+		Score(Q2.1)
+		-----------
+			=	(0 + .25 + .50 + (6)(0.75) + (5)(1))/14
+			=	(0 + .25 + .50 + 4.5 + 5)/14
+			= 	(10.25)/14
+			---------
+			=	0.73%
+	
+	---------*** Note ***----------
+	The Rest was done with MATLAB
+
+
+Results:
+---------------------------------------
+
+Between < 50%	- Negative (Disagree)
+		= 50%	- Neutral (Contentious)
+		> 50%	- Positive (Agree)
+
+---------------------------------------
+
+Question 1: (Doesn't Apply)
+
+Question 2:
+	Question 2.1: 0.732 - 73.2%
+	Question 2.2: 0.536 - 53.6%
+	Question 2.3: 0.518 - 51.8%
+	Question 2.4: 0.696 - 69.6%
+	Question 2.5: 0.643 - 64.3%
+	Question 2.6: 0.732 - 73.2%
+	Question 2.7: 0.696 - 69.6%
+	Question 2.8: 0.732 - 73.2%
+	Question 2.9: 0.500 - 50.0%
+	Question 2.10: 0.696 - 69.6%
+
+Question 3:
+	Question 3.1: 0.339 - 33.9%
+	Question 3.2: 0.375 - 37.5%
+	Question 3.3: 0.518 - 51.8%
+	Question 3.4: 0.536 - 53.6%
+	Question 3.5: 0.339 - 33.9%
+	Question 3.6: 0.321 - 32.1%
+
+Question 4:			
+	Question 4:	  0.500 - 50.0%
+
+Question 5:
+	Question 5:	  0.500	- 50.0%
+
+Question 6 (Note Flipped for Positive Response):
+	Question 6:	  0.429	- 42.9%

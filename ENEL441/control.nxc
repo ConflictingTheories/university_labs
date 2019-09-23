@@ -1,0 +1,72 @@
+float sp = 625 ;   //degrees to turn
+
+float kp = 0.3 ;   // P constant
+float ki = 1000 ;  // I Constant
+float kd = 0.0;    // D constant
+
+float Km = 2.667 ; // Motor Constant
+float M = 0.070 ;  // Mass of Weight in kg
+float g = 9.81 ;   // Acceleration due to gravity
+
+float u = 0.0;     // PID control
+float e = 0.0;     // Error in position
+long y = 0.0;      // Actual position
+long dy = 0.0;     // Change in position
+
+float u_static = 0.0 ;  // Reference Motor Speed
+float up = 0.0 ;        // Total Motor Speed
+
+long tkm1;
+long tk ;
+long dt ;
+long eint = 0;
+long t2;
+long ed;
+
+task main()
+
+{
+
+dt=10;   //ms  - you may want to make this smaller, but you can't go less than one millisecond
+tkm1 = CurrentTick();
+
+u_static = (M * g) / Km ;
+
+while (true)
+{
+tk = CurrentTick() ;
+
+dy = MotorRotationCount(OUT_A) - y;
+
+y = y + dy;
+
+e = sp - y;
+
+eint = eint + e * (dt/1000);
+
+ed = - dy/(dt/1000) ;
+
+u = kp*e + ki*eint + kd*ed ;
+
+up = u + u_static;
+
+if (up<-100.0)
+  up = -100.0;
+else if (u>100.0)
+  up = 100.0;
+else
+  up = up;
+
+
+OnFwdReg(OUT_A, up, OUT_REGMODE_IDLE);
+//OnFwdReg(OUT_A, up, OUT_REGMODE_SPEED);
+
+NumOut(15, LCD_LINE1, ((y/360)*((17.25)/(30))));
+
+t2=CurrentTick();
+Wait( dt- (t2-tk) );  //ensures that exact same amount of time happens in each loop
+
+}
+
+}
+

@@ -1,0 +1,129 @@
+ENCM 507 - Midterm Review Notes
+-------------------------------
+
+TOPIC 1 - Algorithms:
+---------------------
+
+	What is an Algorithm:
+	----------------------
+
+	- Algorithms are a set of operations which receive inputs and provide outputs.
+	
+
+	Runtime Calculations:
+	---------------------
+
+	- Algorithms have a cost - Otherwise known as "Complexity":
+		- Memory Cost
+		- Runtime Cost
+
+	- Runtime is the biggest factor associated with algorithm efficacy, and calculations are done:
+
+		- Operations are broken down into runtime cost for each instruction
+			- Simple Instructions are given a unit of 1 (one)
+			- More complex instructions have a greater cost
+			- Loops are given a value based on # of runs + any additional instructions
+			- All instructions within a loop are multiplied by the loop factor
+			- The entire cost of the runtime is given by summing up the whole program
+			- Big-O notation is used to show the complexity increase
+
+			Ex:
+			---
+					O(N) = N		- Linearly related to N
+					O(N) = N^2		- Quadratically Related to N
+					O(N) = ln(N)	- Logarithmically Related to N
+
+		- NOTE: Watch out for "while()", "for()", "if()", etc for additional complexity
+
+
+	Classifications of Algorithms:
+	------------------------------
+	
+	- Algorithms are broken down into two sub-categories:
+		- Deterministic
+		- Non-Deterministic (Stochastic)
+
+	- Algorithms are further classified into three types:
+		- Bruteforce
+		- Divide-&-Conquer
+		- Greedy
+
+		Bruteforce:
+		-----------
+		- Goes over every possible solution and determines the best one
+		- Very time intensive - not very efficient
+		- Always finds the best solution - given enough time
+		- Not practical for complex problems
+
+		Divide-&-Conquer:
+		-----------------
+		- Repeatedly reduce the instances of the problem until it is small to solve
+		- Finds local solutions, moves on to next portion, finds solutions, repeat
+		- Once finished goes over and compares new smaller selection of solutions and reduces again
+
+		Greedy:
+		-------	
+		- Chooses the best choice everytime - no forethought
+		- Given its options - it always chooses the greatest improvement, but may not lead to best solution
+		- Can make mistakes and find less-than-optimal solution
+
+
+
+TOPIC 2 - Graphs:
+-----------------
+
+	What is a Graph:
+	----------------
+
+	- Graphs are abstract representations of objects where some pairs are connected by links.
+
+
+	Graph Notation:
+	---------------
+
+	- Graphs can be expressed with simple set notation as follows:
+
+			Graph - A set of Nodes and Edges
+
+				ex:
+					G = {V,E}
+
+			Nodes - The objects of the graph
+
+				ex:
+					V = {a, b, c, d, ...}
+
+			Edges - The links between objects
+
+				ex:
+					E = {(a,b), (a,c), (c,d), (d,a), ...}
+
+	Graph Types:
+	------------
+
+	- Graphs can be broken down into different representations:
+
+		Connectivity Graphs:
+		--------------------
+			- Each connection is shown with an individual link between each object
+
+		Hypergraphs:
+		------------
+			- Objects are shown with connections highlighting all nodes which are interconnected
+			- This reduces the amount of lines on the graph
+
+		Directed Graphs:
+		----------------
+			- Shows the connection and the direction of travel between objects
+
+		Weighted Graphs:
+		----------------
+			- Certain links have more weight than others, and can represent influence
+
+	Graph Techniques:
+	-----------------
+
+		** TODO **
+		- Connectivity Matrix 
+
+

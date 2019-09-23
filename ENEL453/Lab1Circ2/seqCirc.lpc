@@ -1,0 +1,16 @@
+# seqCirc.lpc  
+#   The constraints in this file were created simply to be viewed.  
+#   If you wish to use these constraints, please copy them into your  
+#   project's constraint file. If you do not have a project constraints  
+#   file yet, please use the "Project->New Source" menu to create one.
+
+
+
+#pin2ucf - Fri Jan 18 15:27:55 2013
+#The following constraints were newly added
+NET "clk" LOC = C8;
+NET "A" LOC = D2;
+NET "B" LOC = C2;
+NET "enable" LOC = B2;
+NET "Z" LOC = C3;
+NET "reset" LOC = B1;

@@ -1,0 +1,3 @@
+vhdl isim_temp "../Gencounter.vhd"
+vhdl isim_temp "../Clockdivider.vhd"
+vhdl isim_temp "clockdivider_testb.vhd"

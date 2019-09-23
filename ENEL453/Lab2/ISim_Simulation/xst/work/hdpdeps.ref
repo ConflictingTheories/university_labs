@@ -1,0 +1,46 @@
+V3 35
+FL //engfs.eng.ad.ucalgary.ca/home/kderbyma/ENEL453/Lab2/BCDto7seg.vhd 2013/01/27.23:40:26 P.28xd
+FL //engfs.eng.ad.ucalgary.ca/home/kderbyma/ENEL453/Lab2/Clockdivider.vhd 2013/01/28.08:05:53 P.28xd
+FL //engfs.eng.ad.ucalgary.ca/home/kderbyma/ENEL453/Lab2/digitclock60min.vhd 2013/01/29.16:46:57 P.28xd
+FL //engfs.eng.ad.ucalgary.ca/home/kderbyma/ENEL453/Lab2/digitmux.vhd 2013/01/27.23:40:40 P.28xd
+FL //engfs.eng.ad.ucalgary.ca/home/kderbyma/ENEL453/Lab2/digitscanner.vhd 2013/01/27.23:40:44 P.28xd
+FL //engfs.eng.ad.ucalgary.ca/home/kderbyma/ENEL453/Lab2/Gencounter.vhd 2013/01/29.15:50:08 P.28xd
+FL //engfs.eng.ad.ucalgary.ca/home/kderbyma/ENEL453/Lab2/ISim_Simulation/BCDto7seg.vhd 2013/01/27.23:40:26 P.28xd
+FL //engfs.eng.ad.ucalgary.ca/home/kderbyma/ENEL453/Lab2/min60sec60.vhd 2013/01/29.14:32:52 P.28xd
+FL C:/temp/Lab2/Clockdivider.vhd 2013/01/28.08:05:53 P.28xd
+EN work/clockdivider 1359503766 FL C:/temp/Lab2/Clockdivider.vhd \
+      PB ieee/std_logic_1164 1341906176
+AR work/clockdivider/Behavioral 1359503767 \
+      FL C:/temp/Lab2/Clockdivider.vhd EN work/clockdivider 1359503766 \
+      CP gencounter
+FL C:/temp/Lab2/digitclock60min.vhd 2013/01/29.16:46:57 P.28xd
+EN work/clocksystem 1359503776 FL C:/temp/Lab2/digitclock60min.vhd \
+      PB ieee/std_logic_1164 1341906176 PB ieee/NUMERIC_STD 1341906182
+AR work/clocksystem/Behavioral 1359503777 \
+      FL C:/temp/Lab2/digitclock60min.vhd EN work/clocksystem 1359503776 \
+      CP clockdivider CP min60sec60 CP digitmux CP BCDto7seg CP digitscanner
+FL C:/temp/Lab2/digitmux.vhd 2013/01/27.23:40:40 P.28xd
+EN work/digitmux 1359503770 FL C:/temp/Lab2/digitmux.vhd PB ieee/std_logic_1164 1341906176 \
+      PB ieee/NUMERIC_STD 1341906182
+AR work/digitmux/Behavioral 1359503771 \
+      FL C:/temp/Lab2/digitmux.vhd EN work/digitmux 1359503770
+FL C:/temp/Lab2/digitscanner.vhd 2013/01/27.23:40:44 P.28xd
+EN work/digitscanner 1359503774 FL C:/temp/Lab2/digitscanner.vhd \
+      PB ieee/std_logic_1164 1341906176 PB ieee/NUMERIC_STD 1341906182
+AR work/digitscanner/Behavioral 1359503775 \
+      FL C:/temp/Lab2/digitscanner.vhd EN work/digitscanner 1359503774
+FL C:/temp/Lab2/Gencounter.vhd 2013/01/29.15:50:08 P.28xd
+EN work/gencounter 1359503764 FL C:/temp/Lab2/Gencounter.vhd \
+      PB ieee/std_logic_1164 1341906176 PB ieee/NUMERIC_STD 1341906182
+AR work/gencounter/Behavioral 1359503765 \
+      FL C:/temp/Lab2/Gencounter.vhd EN work/gencounter 1359503764
+FL C:/temp/Lab2/ISim_Simulation/BCDto7seg.vhd 2013/01/27.23:40:26 P.28xd
+EN work/BCDto7seg 1359503772 FL C:/temp/Lab2/ISim_Simulation/BCDto7seg.vhd \
+      PB ieee/std_logic_1164 1341906176 PB ieee/NUMERIC_STD 1341906182
+AR work/BCDto7seg/Behavioral 1359503773 \
+      FL C:/temp/Lab2/ISim_Simulation/BCDto7seg.vhd EN work/BCDto7seg 1359503772
+FL C:/temp/Lab2/min60sec60.vhd 2013/01/29.14:32:52 P.28xd
+EN work/min60sec60 1359503768 FL C:/temp/Lab2/min60sec60.vhd \
+      PB ieee/std_logic_1164 1341906176 PB ieee/NUMERIC_STD 1341906182
+AR work/min60sec60/Behavioral 1359503769 \
+      FL C:/temp/Lab2/min60sec60.vhd EN work/min60sec60 1359503768 CP gencounter

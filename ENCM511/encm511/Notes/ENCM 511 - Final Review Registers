@@ -1,0 +1,151 @@
+ENCM 511 - Final Review Registers
+---------------------------------
+
+DATA:
+-----
+	Volatile:	
+	---------
+	- (Are expected to be used without retaining data)
+		R0 - R1 - R2 - R3
+
+	Non-Volatile:	
+	-------------
+	- (Are expected to be used, and stored onto the stack to save data)
+		R4 - R5 - R6 - R7
+
+POINTER:
+--------
+	Volatile:
+	---------
+	- (Are expected to be used without retaining data)
+		P0 - P1 - P2
+
+	Non-Volatile:
+	-------------
+	- (Are expected to be stored and loaded to and from stack)
+		P3 - P4 - P5
+	
+	Frame Pointer:
+	--------------
+	- (Points to Current Instruction)		
+		FP
+
+	Stack Pointer:
+	--------------
+	- (Points to Current Stack Address)
+		SP
+
+GPIO:
+-----
+	Data:
+	-----
+		FIO_FLAG_D
+			: Data Register 	- Contains Values of PF Lines
+		FIO_FLAG_S
+			: Set Register		- Set Values of PF Lines
+		FIO_FLAG_C
+			: Clear Register 	- Clear Values of PF Lines
+		FIO_FLAG_T
+			: Toggle Register	- Toggle Values of PF Lines
+
+	Properties:
+	-----------
+		FIO_DIR
+			: PF Direction		- Set PF Lines to Input/Output
+		FIO_INEN
+			: PF Input Enable	- Set PF Lines to Except Input Values
+		FIO_POLAR
+			: PF Polarity		- Set Polarity to Active Hi/Lo for PF Lines
+		FIO_EDGE
+			: PF Sensitivity	- Set PF Lines to Register Edge Changes
+		FIO_BOTH
+			: PF Edge Detect	- Set PF Lines to Register Both Rising/Falling
+
+	Interrupt:
+	----------
+		FIO_MASKx_D
+			: PF Interrupt Data	- Holds which PF Lines to Trigger Interrupts
+		FIO_MASKx_S
+			: PF Interrupt Set	- Set PF Lines to Trigger Interrupts
+		FIO_MASKx_C
+			: PF Interrupt Clr	- Clear PF Lines Interrupts
+		FIO_MASKx_T
+			: PF Interrupt Tgl	- Toggle PF Line Interrupts
+
+TIMERS:
+-------
+	Core Timer:
+	-----------
+		TCNTL
+			: Timer Control 	- Configure Core Timer Operation 
+		TCOUNT
+			: Timer Count		- Core Timer Counter
+		TPERIOD
+			: Timer Period		- Core Timer Period
+		TSCALE
+			: Timer Scaler		- Core Timer Counting Scaler
+
+	Watchdog Timer:
+	---------------
+		WDOG_CTL
+			: WDog Control		- Configure WDOG Timer Operation
+		WDOG_STAT
+			: WDog Status		- Current Count Value of WDog
+		WDOG_CNT
+			: WDog Count		- Initial Count Value of WDog
+
+	General Purpose Timers:
+	-----------------------
+		TIMER_ENABLE
+			: GP Timer Enable	- Enables GP Timers
+		TIMER_DISABLE
+			: GP Timer Disable	- Disable GP Timers		
+		TIMER_STATUS
+			: GP Timer Status	- GP Timer Status for All Timers		
+		TIMERx_CONFIG
+			: GP Timer Config	- Configures GP Timers
+		TIMERx_COUNTER
+			: GP Timer Counter	- Incremental Counter for GP Timers
+		TIMERx_PERIOD
+			: GP Timer Period	- GP Timer Period Length - Used diff. for PWM
+		TIMERx_WIDTH
+			: GP Timer Width	- GP Timer Pulse Width
+
+SPI:
+----
+	General:
+	--------
+		SPI_CTL
+			: SPI Control		- Configures the SPI Device
+		SPI_BAUD
+			: SPI Baud Rate		- Configures the Data Transfer Speed
+		SPI_FLG
+			: SPI Slave Select	- Configures Inputs to act as Slaves
+		SPI_STAT
+			: SPI Status		- Contains Status of SPI Transfer
+		SPI_TDBR
+			: SPI Transfer		- SPI Transfer Data Buffer
+		SPI_RDBR
+			: SPI Receiver		- SPI Received Data Buffer
+		SPI_SHADOW
+			: SPI Receiver Test - Copy of SPI_RDBR for Testing
+
+INTERRUPTS:
+-----------
+	General:
+	--------
+		IMASK
+			: Interrupt Mask	-	Determines which EVT Interrupts are Enabled
+		ILAT
+			: Interrupt Latch	-	States if an Interrupt is Triggered
+		IPEND
+			: Interrupt Pend	-	Tracks Pending/Current Interrupts
+		SIC_IMASK
+			: Interrupt Enable	-	Enables Hardware Interrupts Masks
+		SIC_ISR
+			: Interrupt Status	-	Status of Interrupts Asserted
+		SIC_IARx
+			: Interrupt Event	-	Sets IVG Assignment for Interrupts
+		EVTx
+			: Event Table		-	Address to ISR for Interrupt Events
+

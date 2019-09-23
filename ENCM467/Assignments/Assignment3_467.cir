@@ -1,0 +1,23 @@
+* C:\Users\Kyle\Documents\Assignment3_467.sch
+
+* Schematics Version 9.1 - Web Update 1
+* Wed Feb 06 12:56:15 2013
+
+
+
+** Analysis setup **
+.DC LIN V_V2 0v 3v .1 
+.LIB "C:\Users\Kyle\Documents\Assignment3_467.lib"
+
+
+* From [PSPICE NETLIST] section of pspiceev.ini:
+.lib "nom.lib"
+
+.INC "Assignment3_467.net"
+.INC "Assignment3_467.als"
+
+
+.probe
+
+
+.END

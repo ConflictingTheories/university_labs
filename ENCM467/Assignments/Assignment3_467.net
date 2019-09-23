@@ -1,0 +1,9 @@
+* Schematics Netlist *
+
+
+
+V_V3         $N_0001 0 3V
+V_V2         $N_0002 0 1V
+V_V1         $N_0002 $N_0003 DC 0V AC .1V 
+R_R1         $N_0004 $N_0001  1k  
+M_M1         $N_0004 $N_0003 0 0 MbreakN           

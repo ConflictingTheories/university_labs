@@ -1,0 +1,52 @@
+
+
+%% ENEL 529 - Additional Topic Notes
+%% =================================
+\title{ENEL 529 - ADDITIONAL TOPICS}
+\author{Kyle Derby MacInnis}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+
+\section*{ADDITIONAL TOPIC - FOURIER TRANSFORM}
+
+ \subsection{SIGNAL TYPES}
+ 	There are two kinds of signals:
+ 	\begin{enumerate}
+ 	\item Deterministic
+ 	\item Random
+ 	\end{enumerate}
+
+ 	\subsubsection{Deterministic Signals}
+	 	Deterministic Signals are signals in which the value of the signal is predetermined, and no uncertainties exist about what value it may have at any time.
+
+ 		Deterministic Signals come in two flavours:
+ 		\begin{enumerate}
+ 		\item Aperiodic Signals
+ 		\item Periodic Signals
+ 		\end{enumerate}
+
+ 		\subsubsubsection{Aperiodic Signals}
+	 		Aperiodic Signals, also known as Nonperiodic signals, do not have a cyclical nature about them, are of the form:
+
+ 			\[E = \int_{-\infty}^{\infty}x^2(t) dt\]
+
+ 			These Signals, are sometimes called "Energy Signals". They are so-called because they have a non-zero finite Energy, $E$.
+
+ 		\subsubsubsection{Periodic Signals}
+ 			Periodic Signals, are signals for which there exists a constant $T$ such that:
+
+ 			\[x(t) = x(t + T), \indent -\infty \le t \le \infty\]
+
+ 			These Signals, are sometimes called "Power Signals". They are called power signals, if, and only if (iff), the signal has finite, but nonzero power, $P$ given by:
+
+
+ 			\[E = \lim_{T\rightarrow\infty}\frac{1}{T}\int_{-T/2}^{T/2}x^2(t)dt\]
+
+
+ 		Note that a Power Signal has Finite Power, and Infinite Energy, whilst an Energy Signal has zero average power, and finite Energy.
+
+ 			
+\end{document}

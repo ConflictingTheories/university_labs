@@ -1,0 +1,29 @@
+Command line:
+   ENEL453Lab1VHDlTestBench_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  54004
+
+Fri Jan 18 14:09:41 2013
+
+
+ Elaboration Time: 0.0156 sec
+
+ Current Memory Usage: 491.069 Meg
+
+ Total Signals          : 8
+ Total Nets             : 4
+ Total Signal Drivers   : 4
+ Total Blocks           : 3
+ Total Primitive Blocks : 2
+ Total Processes        : 4
+ Total Traceable Variables  : 8
+ Total Scalar Nets and Variables : 364
+Total Line Count : 4
+
+ Total Simulation Time: 0.1092 sec
+
+ Current Memory Usage: 491.069 Meg
+
+Fri Jan 18 15:17:01 2013
+

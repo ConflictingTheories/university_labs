@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -o "H:/ENEL453/Lab1Circ2/seqCirc_isim_beh.exe" -prj "H:/ENEL453/Lab1Circ2/seqCirc_beh.prj" "work.seqCirc" 

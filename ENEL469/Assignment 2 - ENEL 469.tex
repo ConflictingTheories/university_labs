@@ -1,0 +1,94 @@
+\documentclass[letterpaper,12pt]{article}
+
+\usepackage{graphicx}
+\DeclareGraphicsExtensions{.pdf,.png,.jpg,.jpeg}
+
+\title{\bf{ENEL 469 Assignment \#2}}
+\author{Kyle Derby MacInnis \\ Instructor: Dr. Mintchev \\ Lab: B03}
+\date{ October 12, 2012 }
+
+\begin{document}
+
+\maketitle
+
+\pagebreak
+
+\section*{Assignment Overview:}
+\%Fill in Assignment Information and Specifications\%
+
+\section*{Circuit Layout:}
+
+%\begin{figure}[here]
+	%	\includegraphics[width=14cm]{Screenshot.png}
+%		\caption{Full-Wave Bridge Rectifier with Filtering Capacitor and Shunt-Regulator}
+%	\end{figure}
+
+\pagebreak
+
+\section*{Assignment Questions and Solutions:}
+
+\subsubsection*{\bf{1\indent From the Zener diode datasheet, identify the Regulator Knee Current IZk and Nominal Zener Voltage VZ0. Perform a DC sweep analysis for the specified diode in order to determine the diode internal resistance rz.
+}}
+{
+Referring to the datasheet\cite{zener_ds} for the 1N5927B zener diode, the following values were assertained: \\ \\
+\begin{math}
+\indent \textrm{Nominal Voltage:} \indent V_z = 12\rm{V} \\ \\
+\indent \textrm{Knee Current:} \indent I_{Zk} = 0.25\rm{mA} \\ \\
+\indent \textrm{Test Current:} \indent I_{ZT} = 31.2\rm{mA}
+\end{math}
+\\ \\
+After performing a DC-Sweep of the Zener Diode:
+%Reference Figure \ref{fig_dc_zener}: 
+\\ \\
+\begin{math}
+\indent \textrm{Internal Resistance:} \indent r_z = m^{-1} = \frac{\Delta x}{\Delta y} = \frac{5.25}{2.16} = 2.431\Omega
+\end{math}
+}
+
+\subsubsection*{\bf{2\indent Calculate the regulator resistor R:}}
+{
+The regulator resistor should be designed such that the zener diode can accomodate the maximum current which could possibly affect it. This would occur if the load was removed from the circuit and the full current went through the diode. So if we analyze the circuit without a load we get:
+\\ \\
+\begin{math}
+\indent i_D = i_R + i_C			\indent \indent i_R = i_Z
+\\ \\
+\textrm{The largest current will occur when $V_C$ peaks (ie. $i_C = 0$):} \\ \\
+\indent I_Z = I_R = \frac{V_C - V_Z}{R}
+\\ \\
+\textrm{The maximum value of $V_C$ is equal to $V_P$ from Assignment \#1, and the maximum current will be approximately equal to $I_L$:} \\ \\
+\indent V_{C_{max}} \approx V_P = V_{s_{max}} - 2V_D = 18\sqrt{2} - 2(0.6) = 24.26\rm{V}
+\\ \\
+\indent I_Z \approx I_L = 24.2\rm{mA}
+\\ \\
+\textrm{This gives:} 
+\\ \\
+\indent R = \frac{(24.26 - 12)\rm{V}}{24.2\rm{mA}} = 506.4\Omega
+\end{math}
+}
+
+\subsubsection*{\bf{3\indent Determine the theoretical value for line regulation. Calculate line regulation for 200$\Omega$, 500$\Omega$, 2.5 k$\Omega$ and 10 k$\Omega$ load resistors.
+}}
+{
+\begin{math}
+\textrm{Line regulation is the ratio between the change in the output voltage in response to a change in the supply voltage: }
+\\ \\
+\indent \textrm{Line Regulation} =\frac{\Delta V_o}{\Delta V_C} \indent\indent (V_C \propto V_S\ \textrm{during conducting phases})
+\\ \\
+\indent \Delta V_C = V_{C_{max}} - V_{C_{min}} = V_{s_{max}} = \pm 25.45\rm{V}
+\\ \\
+\indent \Delta V_o = \Delta V_C \frac{r_Z}{R +r_Z} = \pm0.1216\rm{V}
+\\ \\
+\indent \textrm{Line Regulation} =\frac{\Delta V_o}{\Delta V_C} = \frac{121.6\rm{mV}}{25.45\rm{V}} = 4.78\frac{\rm{mV}}{\rm{V}}
+\end{math}
+}
+
+
+\pagebreak
+
+\section*{Conclusion:}
+\%Enter Final Remarks and Include Design for Final Circuit
+
+\bibliographystyle{plain}
+\bibliography{ENEL469Assignment2.bib}
+
+\end{document}

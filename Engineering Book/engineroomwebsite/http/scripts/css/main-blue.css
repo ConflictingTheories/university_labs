@@ -1,0 +1,236 @@
+/*Default Properties for All Elements*/
+body {
+	font-family: Times;
+	font-style: oblique;
+	color: #ffffff;
+	background-color: #5456ff;
+	text-align: center;
+	margin: auto;
+	min-width: 900px;
+}
+
+a:link, a:visited {
+	text-decoration: none;
+	color: #ffffff;
+	opacity: 0.85;
+}
+
+a:hover {
+	text-decoration: underline;
+	opacity: 1;
+}
+
+/*-----TITLE------*/
+
+#title {
+	margin-top: 55px;
+	margin-bottom: 0;
+	font-size: 30pt;
+}
+
+#subtitle {
+	margin: 0 auto 0 auto;
+	font-size: 14pt;
+}
+
+/*------INDEX------*/
+
+#index_courses {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 30px;
+	width: 900px;
+	white-space: nowrap;
+	letter-spacing: 35px;
+	text-align: center;
+}
+
+#index_courses #math {
+	background-image: url("/images/WelcomeBlue.png");
+	background-position: 0px 0px;
+}
+
+#index_courses #physics {
+	background-image: url("/images/WelcomeBlue.png");
+	background-position: 500px 0px;
+}
+
+#index_courses #electrical {
+	background-image: url("/images/WelcomeBlue.png");
+	background-position: 250px 0px;
+}
+
+.index_button {
+	opacity: .85;
+	border: 2px solid;
+	border-radius: 25px;
+	border-color: #ffffff;
+	width: 250px;
+	height: 300px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.index_button:hover, .course_link:hover {
+	opacity: 1;
+}
+
+.course_link {
+	opacity: 0.85;
+	border: 2px solid;
+	border-radius: 10px;
+	border-color: #ffffff;
+	width: 250px;
+	height: auto;
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 14pt;
+	color: #ffffff;
+	letter-spacing: normal;
+	background-color: #5654ff;
+}
+
+/*------Footer------*/
+
+#footer {
+	position: relative;
+	bottom: 10px;
+	right: auto;
+	left: auto;
+	text-align: center;
+	display: inline-block;
+	white-space: nowrap;
+	width: 70%;
+	padding-top: 30px;
+	font-size: 12pt;
+}
+
+#copy {
+	width: 60%;
+	margin-left: auto;
+	margin-right: 0;
+}
+
+#theme {
+	width: 20%;
+	font-size: 10pt;
+	float: right;
+}
+
+/*------Side Menu------*/
+
+#navigation {
+	position: fixed;
+	margin: 0 0 0 0;
+	padding: 0px;
+	top: 0px;
+	left: 10%;
+	right: 10%;
+	list-style: none;
+	z-index: 999999;
+	width: 80%;
+	min-width: 720px;
+}
+
+#navigation li {
+	width: 20%;
+	display: inline;
+	float: left;
+}
+
+#navigation li a {
+	display: block;
+	float: left;
+	margin-top: 0px;
+	width: 99%;
+	height: 25px;
+	background-color: #ffffff;
+	background-repeat: no-repeat;
+	background-position: 50% 10px;
+	text-decoration: none;
+	text-align: center;
+	padding-top: 0px;
+	opacity: 0.7;
+	border-radius: 0px 0px 10px 10px;
+	-moz-border-radius: 0px 0px 10px 10px;
+	-webkit-border-bottom-right-radius: 10px;
+	-webkit-border-bottom-left-radius: 10px;
+	-khtml-border-bottom-right-radius: 10px;
+	-khtml-border-bottom-left-radius: 10px;
+	filter: progid:DXImageTransform.Microsoft.Alpha(opacity=70);
+}
+
+#navigation li a span {
+	letter-spacing: 2px;
+	font-size: 11px;
+	color: #5456ff;
+}
+
+#navigation li ul li a:hover span {
+	color: #ffffff
+}
+
+#navigation li:hover a {
+	opacity: 0.9;
+}
+
+#navigation li:hover ul {
+	display: block;
+}
+
+#navigation li ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: none;
+}
+
+#navigation li ul li {
+	width: 100%;
+}
+
+#navigation li ul li a {
+	margin: 0;
+	padding: 0;
+	border-radius: 0px;
+	-moz-border-radius: 0px;
+	-webkit-border-bottom-right-radius: 0px;
+	-webkit-border-bottom-left-radius: 0px;
+	-khtml-border-bottom-right-radius: 0px;
+	-khtml-border-bottom-left-radius: 0px;
+}
+
+#navigation li ul li a:hover {
+	background-color: #464646;
+}
+
+/*------Course Pages------*/
+
+#preface {
+	margin: 15px auto 15px auto;
+	padding: 10px;
+	width: 65%;
+	opacity: 0.8;
+	font-size: 11pt;
+	font-style: italic;
+	text-align: justify;
+	color: lightgrey;
+}
+
+.section {
+	margin: 0px auto 0px auto;
+	padding: 10px;
+	width: 70%;
+	opacity: 1.0;
+	text-align: justify;
+	font-size: 12 pt;
+	font-style: normal;
+	color: white;
+}
+
+.section span {
+	margin-bottom: 10px;
+	border-bottom: 2px dashed darkgrey;
+	font-size: 13pt;
+}
+

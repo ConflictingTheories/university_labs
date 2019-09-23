@@ -1,0 +1,9 @@
+* Schematics Netlist *
+
+
+
+R_R1         $N_0002 $N_0001  1k  
+V_V1         $N_0002 0 10V
+V_V2         $N_0003 0 DC 5V AC 1V pulse(0 10 0 10e-9 10e-9 10us 20us)
+C_C1         $N_0001 0  1n  
+M_M1         $N_0001 $N_0003 0 0 M4007N           

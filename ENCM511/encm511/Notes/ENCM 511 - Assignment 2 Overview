@@ -1,0 +1,277 @@
+ENCM 511 - Assignment 2 Overview
+---------------------------------
+
+The following file describes some useful information necessary for the completion of ENCM 511 Assignment 2 wherein the code previously designed in Assignment 1 and labs 0 and 1 will be expanded to include Watchdog Timer and Interrupt Service Events. This will allow for the code to be self-monitoring, and will not need to be expressly told when to do things. This will act in a much more natural way and will allow the code to be adaptable.
+
+### DEFINTIONS
+----------------------------------------------------------
+
+INTERUPTS
+---------
+Allows for regular program flow to be
+disrupted so that IMPORTANT checks can be done.
+
+### STATE OF AFFAIRS
+----------------------------------------------------------
+
+CURRENTLY - (WAIT UNTIL READY)
+------------------------------
+The Program runs through its loops until power is removed, or program code runs through completion. This results in a lot of waiting, without a lot of doing.
+(Wait until ready Approach)
+
+ALTERNATIVELY - (POLL)
+----------------------
+The Program could constantly check for lots of different scenarios, and then when a scenario is found, execute the 
+proper code, and go back to checking. This results in a lot of doing, but there is a chance something might be missed if it is time sensitive.
+(Poll Approach)
+
+IDEALLY - (INTERRUPT)
+----------------
+The program runs through its loops, until power is removed, however - if something important happens externally, then we want to be able to prioritize that code and stop running our regular loop, so that the important code can be run, and then once run and updated, continue loop, or if necessary, begin new loop. This allows for priorities to be recognized and for time sensitive information to be available and properly read and executed.
+(Interrupt Approach)
+
+
+### CHALLENGES FOR INTERRUPTS
+----------------------------------------------------------
+
+1) - What if a device hardware can only provide a quick "I am ready" signal?
+
+2) - What if more than on hardware device wants to send an interrupt request?
+
+3) - What if the programmer wants to "ignore" "low-priority" interrupt requests?
+
+4) - What if certain interrupt requests are too important to ignore?
+
+
+### SOLUTIONS FOR CHALLENGES
+---------------------------------------------------------
+
+1) - Add in an interrupt "capture" latch to the processor. This means that the processor reads in the data from the interrupt buffer and captures any quick "transient" interrupt signals using the system clock signal. This is then passed on for check.
+
+2) - Add in a queue buffer, which organizes the interrupts in order of priority. This is added after the capture latch such that each interrupt signal captured, is then queued according to priority and then executed accordingly.
+
+3) - Add an "ignore" interrupt mask between the capture latch, and the buffer. This masks over any interrupts which are deemed by the programmer to be insignificant or not worth worrying about.
+
+4) - Make certain interrupts, those deemed too important to ignore, as Non-Maskable Interrupts (NMI). These interrupts are fed around the interrupt mask, and are sent directly to the capture latch.
+
+### HOW DOES THE INTERRUPT WORK
+---------------------------------------------------------
+When an interrupt occurs in the code execution, there is a register RETI, which stores the address of the instructions which is being interrupted. This is then reloaded once the interrupt completes its cycle. The Pointer Counter (PC) is then set to the preloaded values for various interrupts from a lookup table. The lookup table is known as the EVR Table, and stands for Event Vector Register Table.
+
+If an interrupt signal is received and the processor does not know what to do with that signal, then it decides to hang the processor by going into an infinite loop using IDLE;
+
+### TESTING INTERRUPTS
+----------------------------------------------------------
+The interrupts can be tested in C++ using a special instruction called raise(); 
+
+		void raise(INTERRUPT_BIT);
+	
+This instruction sets the bit of the interrupt capture latch to 1, signalling to the processor that an interrupt has occured. This is a special way to test the interrupts and see if they are functioning as expected.
+
+
+
+### PROTOTYPE FUNCTIONS FOR ASSIGNMENT 2
+---------------------------------------------------------
+
+WATER CONTROL
+-------------
+	// Turn off Water
+	Stop_WaterDevice();
+	
+	// Initialize Water 
+	Initialize_WaterDevice();
+	
+	// Start Water Flowing
+	Start_WaterDevice();
+
+	// Write Water Device
+	Write_WaterDevice();
+
+	// Read Water Level
+	Read_WaterDevice();
+
+HEATER CONTROL
+--------------
+	// Turn off Heat
+	Stop_HeaterDevice();
+
+	// Initialize Heater
+	Initialize_HeaterDevice();
+
+	// Start Heating Water
+	Start_HeaterDevice();
+
+	// Write Heater Rate
+	Write_HeaterDevice();
+
+	// Read Heater Temperature
+	Read_HeaterDevice();
+
+LED CONTROL
+--------------
+	// Initialize LEDs
+	Init_LED();
+
+	// Write to LEDS
+	Write_LED();
+
+	// Read from LEDS
+	Read_LED();
+
+GPIO CONTROL
+--------------
+	// Stop Switches
+	My_Stop_Switches();
+
+	// Initialize Switches
+	My_InitSwitches();
+
+	// Read Switches
+	My_ReadSwitches();
+
+	// Write Switches
+	My_WriteSwitches();
+
+CORE TIMER CONTROL
+----------------
+	// Stop Core Timer
+	Stop_CoreTimer();
+
+	// Initialize Core Timer
+	Initialize_CoreTimer();
+
+	// Write Core Timer
+	Write_CoreTimer();
+
+	// Start Core Timer
+	Start_CoreTimer();
+
+	// Read Core Timer
+	Read_CoreTimer();
+
+WATCHDOG TIMER CONTROL
+----------------------
+	// Stop WDOG Timer
+	Stop_WDogTimer();
+
+	// Initialize WDOG Timer
+	Initialize_WDogTimer();
+
+	// Write WDOG Timer
+	Write_WDogTimer();
+
+	// Start WDOG Timer
+	Start_WDogTimer();
+
+	// Read WDOG Timer
+	Read_WDogTimer();
+
+GPIO INTERRUPT CONTROL
+----------------------
+	// Stop GPIO Interrupts
+	Stop_GPIOInterrupts();
+
+	// Initialize GPIO Interrupts
+	Initialize_GPIOInterrupts();
+
+	// Start GPIO Interrupts
+	Start_GPIOInterrupts();
+
+	// Read GPIO Interrupts
+	Read_GPIOInterrupts();
+
+	// Execute GPIO Interrupts
+	Do_GPIOInterrupts_ISR();
+
+	// Acknowledge GPIO Interrupt
+	Acknowledge_GPIOInterrupts();
+
+	// Stop GPIO NMI Interrupts
+	Stop_GPIO_NMI_Interrupts();
+
+	// Initialize GPIO NMI Interrupts
+	Initialize_GPIO_NMI_Interrupts();
+
+	// Start GPIO NMI Interrupts
+	Start_GPIO_NMI_Interrupts();
+
+	// Read GPIO NMI Interrupts
+	Read_GPIO_NMI_Interrupts();\
+
+	// Execute GPIO NMI Interrupts
+	Do_GPIO_NMI_Interrupts():
+
+	// Acknowledge GPIO NMI Interrupts
+	Acknowledge_GPIO_NMI_Interrupts();
+
+WDOG INTERRUPT CONTROL
+----------------------
+	// Stop WDOG Interrupts
+	Stop_WDOGInterrupts();
+
+	// Initialize WDOG Interrupts
+	Initialize_WDOGInterrupts();
+
+	// Start WDOG Interrupts
+	Start_WDOGInterrupts();
+
+	// Read WDOG Interrupts
+	Read_WDOGInterrupts();
+
+	// Execute WDOG Interrupts
+	Do_WDOGInterrupts_ISR();
+
+	// Acknowledge WDOG Interrupt
+	Acknowledge_WDOGInterrupts();
+
+	// Stop WDOG NMI Interrupts
+	Stop_WDOG_NMI_Interrupts();
+
+	// Initialize WDOG NMI Interrupts
+	Initialize_WDOG_NMI_Interrupts();
+
+	// Start WDOG NMI Interrupts
+	Start_WDOG_NMI_Interrupts();
+
+	// Read WDOG NMI Interrupts
+	Read_WDOG_NMI_Interrupts();\
+
+	// Execute WDOG NMI Interrupts
+	Do_WDOG_NMI_Interrupts():
+
+	// Acknowledge WDOG NMI Interrupts
+	Acknowledge_WDOG_NMI_Interrupts();
+
+
+### CODE SNIPPETS FOR ASSIGNMENT 2
+---------------------------------------------------------
+
+# New Code Marker
+
+% Old Code Marker
+
+
+New Code Snippets: (Main File)
+-------------------------------
+
+// Initialize Coffee Pot
+%Init_CoffeePot();
+
+// Stop Interrupts
+#Stop_CoreTimer_Interrupt();
+
+// Setup Interrupts as we want them
+#Setup_CoreTimer_Interrupts();
+
+// Start the Interrupts
+#Start_CoreTimer_Interrupt();
+
+// Loop While waiting for Device
+%While(device_notReady) {
+	
+	// Using Interrupts we can prioritize better
+	//#Hidden Background Interrupt Service Routine
+
+	// Check for end of loop
+	//%Check if Ready
+}

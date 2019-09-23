@@ -1,0 +1,2 @@
+xst -intstyle ise -ifn "H:/ENEL453/ENEL453Lab1_Circuit1/ENEL453Lab1VHDlTestBench.xst" -ofn "H:/ENEL453/ENEL453Lab1_Circuit1/ENEL453Lab1VHDlTestBench.syr" 
+xst -intstyle ise -ifn "H:/ENEL453/ENEL453Lab1_Circuit1/ENEL453Lab1VHDlTestBench.xst" -ofn "H:/ENEL453/ENEL453Lab1_Circuit1/ENEL453Lab1VHDlTestBench.syr" 

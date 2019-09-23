@@ -1,0 +1,29 @@
+Command line:
+   gencounter_testb_isim_beh.exe
+     -simmode  gui
+     -simrunnum  1
+     -socket  52726
+
+Tue Jan 29 15:08:24 2013
+
+
+ Elaboration Time: 0.0312 sec
+
+ Current Memory Usage: 491.164 Meg
+
+ Total Signals          : 11
+ Total Nets             : 12
+ Total Signal Drivers   : 6
+ Total Blocks           : 4
+ Total Primitive Blocks : 3
+ Total Processes        : 4
+ Total Traceable Variables  : 16
+ Total Scalar Nets and Variables : 498
+Total Line Count : 24
+
+ Total Simulation Time: 0.0312 sec
+
+ Current Memory Usage: 491.164 Meg
+
+Tue Jan 29 16:35:43 2013
+

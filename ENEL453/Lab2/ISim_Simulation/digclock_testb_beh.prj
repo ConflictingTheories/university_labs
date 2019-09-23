@@ -1,0 +1,8 @@
+vhdl work "../Gencounter.vhd"
+vhdl work "../min60sec60.vhd"
+vhdl work "BCDto7seg.vhd"
+vhdl work "../digitscanner.vhd"
+vhdl work "../digitmux.vhd"
+vhdl work "../Clockdivider.vhd"
+vhdl work "../digitclock60min.vhd"
+vhdl work "digclock_testb.vhd"

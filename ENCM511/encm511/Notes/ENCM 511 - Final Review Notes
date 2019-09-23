@@ -1,0 +1,939 @@
+ENCM 511 - Final Review Notes
+-----------------------------
+
+==================================================================
+					Diagram Knowledge
+==================================================================
+
+	- Know the Lab Hookup Diagrams - Perfectly			(Lab1Details)
+	- Know the uController Diagram - Perfectly			(SlideSet1)
+	- Know the Blackfin Processor Diagram - Perfectly	(Desktop)
+	- Know the Core Blackfin CPU Diagram - Perfectly	(Desktop)
+
+==================================================================
+
+
+==================================================================
+	SS_1		Microprocessor vs. Microcontroller:
+==================================================================
+
+	Microprocessor:
+	---------------
+		- Contains CPU, CCU, ALU, Data Registers, Pointer Registers
+		- Outputs Address Bus, Control Bus, Data Bus
+		- Useless by itself
+		- Requires external peripherals to work
+
+	Peripherals:
+	------------
+		- Perform additional logic that communicates with processor
+		- Require additional logic to connect with uProcessor
+			- Decode Logic Device - Chip Select
+			- Control Signals
+			- Outputs back to uProcessor
+
+	Microcontroller:
+	----------------
+		- Contains a microprocessor, alongside some peripherals
+		- Peripherals are limited in size (Small amount)
+		- Usually enough to do most things
+		- Can be expanded with other peripherals
+		- More Cost Effective (Usually)
+		- More Reliable
+		- Usually has support for IDE
+
+
+	Memory Types:
+	-------------
+		On-Chip Memory:
+		---------------
+			- Fast R/W access - Almost as fast as registers
+			- Limited in Size
+			- Can be used in "cache" mode
+				- Off Chip Memory is loaded into Cache
+				- Operations are Performed on Cache
+				- Data is then Stored back to Off-Chip Memory
+
+		Off-Chip Memory:
+		----------------
+			- Slower R/W access than On-Chip
+			- Additional Cost
+
+==================================================================
+
+
+==================================================================
+	SS_2			Embedded Project Types
+==================================================================
+
+	Exploratory Projects:
+	---------------------
+		- Focused on learning how to do something
+		- Simpler in scope - usually focused on one thing
+		- Just enough code to "make it work"
+
+	Developer Test Projects:
+	------------------------
+		- Focused on developing a test framework
+		- Part of Test Driven Development (TDD)
+		- Tests code for correction function
+		- Used for both initial and final versions
+
+	Customer Library Projects:
+	--------------------------
+		- Project designed to package code for reusability
+		- Can be used in later projects
+		- Provides Declarations - but hides actual code
+		- Compressed into object files(bytecode)
+
+	Customer Projects:
+	------------------
+		- Code designed to be released to customer
+		- Final version - should be bug free
+		- Incorporates Libraries
+
+==================================================================
+
+
+==================================================================
+	SS_3		Controlling a CoffeePot - Reminders
+==================================================================
+		
+	Plug-n-Play:
+	------------
+		- Device is plugged in - System Recognizes it
+		- Device has own Registers
+			- Outside Processor Core
+			- Controlled by the SOC interface
+			- Register bits control Peripheral Switches
+			- Switches control hardware (in Peripheral)
+		- Device "Base Address" is sent to Blackfin
+			- Device will be controlled from this address
+		- Each device has its own Base Address
+
+==================================================================
+
+
+==================================================================
+					State Machine Design
+==================================================================
+
+	- Define all necessary states
+	- If accuracy is necessary - Use Multiple State Loops
+	- Make sure that state machine contains everything except things which need to be run at every state.
+	- Pay attention to Order - and Waiting Conditions
+
+	- Basic Layout:
+
+//Initial Loop Starts Here\\
+		- INIT
+			: Determine Expected State - Goto HI_LO or LO_HI
+		- LO_HI
+			: Rising Edge
+		- HIGH
+			: Active High
+		- HI_LO
+			: Falling Edge
+		- LOW
+			: Active Low
+//Accuracy Starts Here\\
+		- LO_HI2
+			: Rising Edge - Accurate
+		- HIGH2
+			: Active High - Accurate
+		- HI_LO2
+			: Falling Edge - Accurate
+		- LOW2
+			: Active Low - Accurate
+//Store Accurate Values Here\\
+		- LO_HI3
+			: Store Values - Goto HIGH2
+
+	- NOTE: If you need to - draw state diagram
+
+==================================================================
+
+
+==================================================================
+	SS_29					Super Loops
+==================================================================
+
+	- Have an explicit timer - Either software or Hardware
+	
+	Software timer Super Loop:
+	----------------------------
+		
+		- Requires a Wait() function
+			ex:
+
+				void Wait(unsigned int cycle_Count)
+				{
+					count = 0;
+					while(count < cycle_Count)
+					{
+						count++;
+					}
+				}
+
+		- Define Struct with DELAY and PERIOD
+			ex:
+
+				typedef struct SL_Task {
+					unsigned int DELAY;
+					unsigned int PERIOD;
+				} SL_Task;
+
+		- DELAY 
+			- Counter between successive runs
+			- Also includes Initial Delay
+			- Decrements after each cycle
+		
+		- PERIOD
+			- # of cycles between successive runs
+			- Set DELAY to PERIOD after each run
+
+
+		- DELAY counts down
+			- When not zero
+				- Decrement every cycle
+			- When zero 
+				- Run Task
+				- After Task - Reset DELAY to PERIOD
+
+
+	Hardware Timer Super Loop:
+	--------------------------
+
+		- Requires Timer Functions
+			ex:
+				void StopTimer();	// Stop Timer
+				void InitTimer();	// Initialize Timer
+				void StartTimer();	// Start Timer
+
+		- Timer Count is then read
+			- When it reaches zero - Set Flag
+			ex:
+				void ReadTimer()
+				{
+					if(*pCOUNT == 0)
+					{
+						Flag = 1;
+						*pCOUNT = RESET_COUNT_VALUE;
+					}
+				}
+
+		- Each time Flag is set - Once Cycle has passed
+			- Decrement Task Delays by one Cycle
+			ex:
+				while(1)
+				{
+					while(Flag == 0)
+					{
+						// Do Nothing
+					}
+
+					Flag = 0;		// Reset Flag
+					
+					Task.DELAY--;	//Decrement Task Delay
+
+					...
+				
+				}
+
+			- If Task Delays reach zero - Execute Task
+			ex:
+				if(Task.DELAY == 0)
+				{
+					RunTask();					// Execute Task
+					Task.DELAY = Task.PERIOD;	// Reset Delay
+				}
+
+==================================================================
+
+
+==================================================================
+	SS_29	Time Triggered Cooperative Operating System
+==================================================================
+
+	- Similar to a Hardware Timed Super Loop, but Implicit Timer
+	- Timers are initialized with uTTCOS
+	- Uses Interrupts to schedule tasks
+	- Tasks are added to a Queue
+	- Semaphores used to lock resources in case of multiple threads simultaneously
+	- Goes into sleep mode - Woken by Interrupts
+	- Interrupts run every Cycle - with ISR
+		- ISR adjusts the delays of Tasks
+		- Tasks run when Delay counts down
+		- Delay reset when Task Run
+	
+==================================================================
+
+
+==================================================================
+	SS_7/8		General Purpose Input/Output Lines
+==================================================================
+
+	- There are 16 GPIO lines for the Blackfin
+	- These correspond with PF0-15
+		- In lab, PF8-11 are connected to SW1-4.
+	- These are normally inputs
+	- They can be used as controls/Signals
+	- They can trigger multiple interrupts
+
+	GPIO Functionality:
+	-------------------
+	- GPIO can be read								(FIO_FLAG_D)
+	- GPIO can be set								(FIO_FLAG_S)
+	- GPIO can be cleared							(FIO_FLAG_C)
+	- GPIO can be toggled							(FIO_FLAG_T)
+	- GPIO can be Inputs or Outputs 				(FIO_DIR)
+	- GPIO can have different polarity 				(FIO_POLAR)
+	- GPIO can be enabled/disabled					(FIO_INEN)
+	- GPIO can be level/edge triggered				(FIO_EDGE)
+	- GPIO edge trigger can be Both Rising/Falling	(FIO_BOTH)
+	- GPIO can be used to trigger interrupts		(FIO_MASKx_D/S/C/T)
+
+	*NOTE:
+		- Edge Triggered - Sets FIO_FLAG_D bit to one on rising/falling edge - And must be cleared manually
+
+==================================================================
+
+
+==================================================================
+	SS_11/13/14			Blackfin Timers
+==================================================================
+
+	- There are 5 Timers on board the Blackfin
+		- Watchdog Timer
+		- Core Timer
+		- 3 GP Timers
+
+	Core Timer:
+	-----------
+		- Automatically Resets (If Enabled)
+		- Counts Down
+		- Can be used to execute interrupts
+		
+	Watchdog Timer:
+	---------------
+		- Used for Software Reset - Interrupt
+		- Counts Down - When 0 - Run Interrupt
+		- Has to be manually disabled -> reset -> Enabled
+		- Can Reset Hardware
+
+	GP Timers:
+	----------
+		- Useful for PWM
+		- Increments Count
+		- Can be used for Interrupts
+		- Uses Period for Periodic ISRs
+		- Period and Width used for PWM
+			- Period is Cycle Period
+			- Width is Cycle Pulse
+			Ex:
+						<-- Width -->					
+						|-----------|		|
+						|			|		|
+				 _______|			|_______|
+						<----- Period ----->
+	
+==================================================================
+
+
+==================================================================
+	SS_24				Handling Interrupts
+==================================================================
+
+	Blackfin Libraries provide a Macro and Function used in declaring interrupt service routines as they apply to priority.
+
+	This Macro below:
+
+		EX_INTERRUPT_HANDLER(ISR_name)
+		{
+			...
+		}
+
+	is the same as:
+
+		#pragma interrupt \
+		void ISR_name(void)
+		{
+			...
+		}
+
+	This function below:
+		
+		register_handler(evt_signal, ISR_name);
+
+	Is effectively the same as:
+
+		SetEVT(unsigned char evt_signal, void (*_isr)(void) )
+		{
+			// Set EVTx Register to ISR address
+			// EVT_TABLE - Base Address of Table
+			// evt_signal - priority level (5 - 15)
+			// 0x20 - 32 bits
+			// _isr - Address of ISR
+
+			*(pEVT_TABLE + (evt_signal * 0x20)) = _isr;
+		}
+==================================================================
+
+
+==================================================================
+	SS_16				Peripheral Types
+==================================================================
+
+	- There are many different peripherals which can be connected to the Blackfin. These are controlled in various ways.
+
+	Some such peripherals are:
+		- Digital Peripherals
+			- Pulse Width Modulation used for analog to digital
+		
+		- SPI peripherals
+			- Sends stream of Data one bit at a time
+
+		- PPI peripherals
+			- Sends information over multiple bits at once
+
+		- Analog Peripherals
+			- Can be converted to digital signal via A/D converter
+
+==================================================================
+
+
+==================================================================
+	SS_25/26/27		Serial Peripheral Interface
+==================================================================
+
+	- ###TODO###
+
+==================================================================
+
+
+==================================================================
+	SS_20			Project Creation & Error Types
+==================================================================
+
+	Mistakes, Defects, & Errors:
+	----------------------------
+		- A mistake is anything you do wrong at any stage of the project.
+		- An Error is any mistake you make in a stage, but correct before moving onto the next stage.
+		- A Defect is any mistake you make in a stage, but fail to correct before moving onto the next stage.
+		- Mistakes Happen - Only awareness and practice can reduce them.
+		- Errors are less costly than defects.
+
+
+		Error Rate:
+		-----------
+			- You can estimate the # of errors and defects:
+			- These are referenced to 1000 LOC or kLOC
+
+			Estimation of Mistake Rate:
+			-----------------------
+				Mistake Rate 	= (# of Mistakes)/(LOC)
+				Error Rate		= (# of Errors)/(LOC)
+				Defect Rate		= (# of Defects)/(LOC)
+
+			Estimation of Mistakes:
+			----------------------------
+				Estimated Mistakes 	= (Mistake Rate) * (LOC)
+				Estimated Errors	= (Error Rate) * (LOC)
+				Estimated Defects	= (Defect Rate) * (LOC)
+
+
+		Calculating Mistake Recovery Efficiency:
+		----------------------------------------
+				MRE = (# of Errors Found) / (# of Mistakes)
+					= (# of Errors)/(# of Errors + Defects)
+
+
+		Calculating Defect Recovery Efficiency:
+		---------------------------------------
+				DRE = (# of Defects Found) / (# of Mistakes)
+					= (# of Defects)/(# of Errors + Defects)
+
+
+	Preprocessor/Compiler/Linker/Assembler Errors:
+	----------------------------------------------
+
+		Preprocessor Errors:
+		--------------------
+			- Errors due to preprocessor problems
+			- Involve things like pragmas, labels, etc
+
+		Compiler Errors:
+		----------------
+			- Errors due to the compiler
+			- Frequently are syntax errors
+
+		Linker Errors:
+		--------------
+			- Errors due to the Linker
+			- Usually due to missing libraries or name mangling
+
+		Assembler Errors:
+		-----------------
+			- Errors due to the Assembler
+			- Usually syntax errors
+
+==================================================================
+
+
+==================================================================
+	SS_9/19			Automated Testing Environments
+==================================================================
+
+	Why Test?:
+	----------
+		- There are many reasons to test code:
+			- Unit Functionality
+			- Product Understanding
+			- Regression Testing
+			- System Testing
+
+		Unit Functionality:
+		-------------------
+			- Does the unit (piece of code) work as intended?
+
+		Product Understanding:
+		----------------------
+			- What is the product supposed to do? Does it?
+
+		Regression Testing:
+		-------------------
+			- Does the product still work after new code added?
+
+		System Testing:
+		---------------
+			- Does the final product do what it is supposed to?
+
+
+	Types of Tests:
+	---------------
+		- There are two main types of testing:
+			- Test Last Development
+			- Test Driven Development
+
+		Test Last Development:
+		----------------------
+			- Code is tested after it has been written.
+			- Requires extensive work after main code has been written - Can be demoralizing.
+			- May require major rewrites if tests fail
+
+		Test Driven Development:
+		------------------------
+			- Tests are designed prior to writing code
+			- Ensures that specifications are known before hand
+			- Allows for regression testing later on
+			- Uses an automated framework for testing
+			- Code can be tested at interim stages
+			- Once final product is finished - it can be tested and released if passed.
+
+	
+	Embedded Test Driven Development:
+	---------------------------------
+		- An automated testing framework is used.
+		- This framework is extensible
+		- Separates test code from release code
+		- Includes Libraries instead of release code
+
+	
+	E-UNIT Testing Framework:
+	-------------------------
+		- Tests are done in a modular style
+		- Multiple tests can be done at once
+		- Tests can be done to check for success or failure
+			ex:
+				TEST(TestName)
+				{
+					// Insert Test Here
+				}
+
+==================================================================
+
+
+==================================================================
+	SS_20					PSP	Practices
+==================================================================
+
+	- Personal Software Process is a framework to help provide structure to software programmers to help them improve the quality and efficiency of their code.
+
+	- Focuses on improving the "process" of software programming
+
+	- Emphasizes effort estimation and quality software (MRE/DRE/Expected Defects)
+
+	- Goal is to produce defect-free code on time without extra stress.
+
+==================================================================
+
+
+==================================================================
+					Blackfin Name Mangling
+==================================================================
+
+	- Function names are mangled by compiler to fit C standards
+	- These can be avoided by the use of "extern 'C'" to prepend function declarations.
+
+	- C name mangling is ASM means that names are prepended by an underscore when called from assembly
+		ex:
+			C++ Language:
+			-------------
+				extern 'C' void TestFunction();
+				{
+					...
+				}
+
+			Assembly Language:
+			------------------
+				.global _TestFunction;
+
+				_TestFunction:	// ASM
+				
+				LINK 20;
+				
+				...
+				
+				UNLINK;
+				
+				_TestFunction.END:
+
+				RTS;
+==================================================================
+
+
+==================================================================
+	SS_28			Blackfin Number Formats
+==================================================================
+	
+	Word Length:
+	------------
+		LONG	-	64 Bits
+		WORD    -	32 Bits
+		HWORD	-	16 Bits
+		BYTE 	-	8 Bits
+
+	Endian:
+	-------
+		- Blackfin is Little Endian 
+		- MSB is High Address
+		- LSB is Low Address
+			ex:
+			
+			WORD[Addr] =
+
+					-----------------------------
+			 		| Byte | Byte | Byte | Byte | 	
+			(MSB)	_____________________________	(LSB)
+
+					|Addr+3|Addr+2|Addr+1|Addr+0|
+					-----------------------------
+
+	Alignment:
+	----------
+		- Blackfin is Byte Aligned	(8-Bit)
+		- Addresses are 4-Byte Aligned (32-Bit)
+		- Accessing Addresses requires Proper alignment
+		- When Accessing Address with Pointer:
+			- Increment Aligns with Size Read
+				ex:
+					Word Alignment (Aligned with 32 Bits):
+						R0 = [P0 + 4]	(4 Bytes)
+					
+					Half-Word Alignment (Aligned with 16 Bits):
+						R0 = W[P0 + 2]	(2 Bytes)
+					
+					Byte Alignment (Aligned with 8 Bits):
+						R0 = B[P0 + 1]	(1 Byte)
+
+
+	Unsigned Numbers:
+	-----------------
+		- No Sign Bit
+		- Positive Only
+		- Seen as Pure Binary Values
+
+	Signed Numbers:
+	---------------
+		- Sign Bit (MSB)
+		- 2's Complement Numbering
+		- Negative and Positive
+
+	Floating Point Numbers:
+	-----------------------
+		- 1.15 Style Fractions
+			- Sign Bit (MSB)
+			- 15 Fractional Bits
+			- Smallest Fraction (LSB) - 2^(-15)
+
+==================================================================
+
+
+==================================================================
+				Blackfin C/C++ Instructions
+==================================================================
+	
+	Interrupt Handling:
+	-------------------
+
+		raise(ILAT_BIT):
+		----------------
+			- Forces bit on ILAT register to be set
+			- This causes interrupt corresponding to bit
+			- ISR is then called.
+
+		EX_INTERRUPT_HANDLER():
+		-----------------------
+			- Macro for labeling ISR functions
+			- Contains pragma for interrupt
+			- Ensures RTI is used
+
+		register_handler(ivg_signal, _isr):
+		-------------------
+			- Function for Setting EVT Registers
+			- ivg_signal defines priority
+			- _isr is ISR to be run
+
+	Register Access:
+	----------------
+		-Registers are accessed via pointers defined as:
+
+		#define	pREGISTER_NAME = (volatile [char/short/int/long] *)REGISTER_NAME;
+
+
+	Structs:
+	--------
+		- Useful to build arrays for control registers
+		- can be typedef'd for easy use
+
+		typedef struct _str_Name { ... } _str_Name;
+
+	Loops:
+	------
+		- While and For loops are useful
+		- While is easier to write in ASM so preferred for prototyping Assembly functions.
+		- Be careful not to accidently hog resources
+
+	Switch:
+	-------
+		- Useful for State Machine Design
+		- Can be defined as states for comprehension
+
+
+	Synchronization:
+	----------------
+		- Forcing Store to Registers
+		- Should be called whenever a register is written to
+		- Ensures that data isn't lost
+
+		SSYNC:
+		------
+			asm('ssync;');
+
+		CSYNC:
+		------
+			asm('csync;');
+
+
+	Name Mangling:
+	--------------
+		- Used when calling functions from ASM
+			ex:
+			
+			extern "C" void function_name();
+
+	Static:
+	-------
+		- Useful for single functions which get called but depend on previous data
+		- Value remains stored despite function closing
+		- Value is only referenceable from file defined within.
+			ex:
+
+			static unsigned int my_Var = 0;
+
+	Extern:
+	-------
+		- Other than Name Mangling - Useful for Semaphores
+		- Header Files should contain externs
+		- Externs do not allocate space - merely say something is there.
+		- Variable must be defined in a CPP file somewhere.
+			ex:
+			// In header file (All Files)
+			extern bool SPI_in_USE;
+
+			// In CPP file (Single File)
+			bool SPI_in_USE = false;
+
+	Volatile:
+	---------
+		- Needed when dealing with Interrupts
+		- States that variable may change outside of normal code
+		- Useful for Interrupt Semaphores and registers
+			ex:
+			// Interrupt Controlled Timer Semaphore
+			volatile unsigned int TIMER_Count_High = 0;
+
+==================================================================
+
+
+==================================================================
+				Blackfin Assembly Instructions
+==================================================================
+	
+	Section Types:
+	--------------
+		Instructions:
+		-------------
+			.section program
+		
+		L1Data:
+		-------
+			.section l1data
+
+	Declarative Labels:
+	-------------------
+		Globals:
+		--------
+			.global _Function;
+
+		Extern:
+		-------
+			.extern _Function;	
+
+	Labels:
+	-------
+		Beginning:
+		----------
+			_Function:
+
+		End:
+		----
+			_Function.END:
+		
+	Extension:
+	----------
+		- When Reading/Storing Half-Words and Bytes you can specify the type of extension done to the data when it is converted to 32-bit Words:
+				
+			Sign Extended:
+			--------------
+				- Appended with (X);
+				- All preceeding bits are set to sign bit
+
+			Zero Extended:
+			--------------
+				- Appended with (Z);
+				- All preceeding bits are set to 0;
+
+	Reading:
+	--------
+		- Reading can be done from an address pointed to by a pointer register with the use of square brackets. It can read in Bytes, Half-Words, and Words.
+
+		Bytes:
+		------
+			ex:
+			R0 = B[P0+1](Z);
+
+		Half-Words:
+		-----------
+			ex:
+			R0 = W[P0+2](Z);
+
+		Words:
+		------
+			ex:
+			R0 = [P0+4];
+
+	Storing:
+	--------
+		- Storing can be done to an address pointed to by a pointer register with use of square brackets. It can be stored as Bytes, Half-Words, and Words.
+
+		Bytes:
+		------
+			ex:
+			B[P0+1] = R0;
+
+		Half-Words:
+		-----------
+			ex:
+			W[P0+2] = R0;
+		
+		Words:
+		------
+			ex:
+			[P0+4] = R0;
+
+	Shifting:
+	---------
+		- Shifting can be done either left or right. It is shifted by bits.
+
+		Right Shift:
+		------------
+			ex:
+			R0 = R1 >> 3;
+
+		Left Shift:
+		-----------
+			ex:
+			R0 = R1 << 2;
+
+	Calling:
+	--------
+		- Functions can be called within other subroutines.
+		- If parameters are to be passed - Knowledge of how function uses them is necessary.
+		- Are they passed to the stack or R0-R2?
+		- Are they leaf subroutines?
+
+		CALL _MySubRoutine;
+
+	Comparative:
+	------------
+		- Blackfin uses a comparison bit for conditionals
+		- Comparison bit is set first, then conditional is called.
+			ex:
+			CC = R0 <= R1;
+			IF !CC JUMP _GreaterThan;
+
+	Synchronization:
+	----------------
+		- Synchronization can be done to force data to be finished loading prior to any more instructions being executed in the pipeline.
+
+		CSYNC:
+		------
+			csync;
+
+		SSYNC:
+		------
+			ssync;
+
+	Additional Functions:
+	---------------------
+		RAISE:
+		------
+			raise 24;
+
+		IDLE:
+		-----
+			idle;
+
+		RTS:
+		----
+			rts;
+
+		RTN:
+		----
+			rtn;
+		
+		RTI:
+		----
+			rti;
+
+		LINK:
+		-----
+			link 20;
+
+		UNLINK:
+		-------
+			unlink;
+
+==================================================================
+

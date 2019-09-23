@@ -1,0 +1,29 @@
+Command line:
+   digclock_testb_isim_translate.exe
+     -simmode  gui
+     -simrunnum  4
+     -socket  52884
+
+Tue Jan 29 16:10:52 2013
+
+
+ Elaboration Time: 0.140401 sec
+
+ Current Memory Usage: 493.83 Meg
+
+ Total Signals          : 2184
+ Total Nets             : 1471
+ Total Signal Drivers   : 1448
+ Total Blocks           : 401
+ Total Primitive Blocks : 232
+ Total Processes        : 1447
+ Total Traceable Variables  : 3304
+ Total Scalar Nets and Variables : 13044
+Total Line Count : 4122
+
+ Total Simulation Time: 0.187201 sec
+
+ Current Memory Usage: 493.83 Meg
+
+Tue Jan 29 16:35:39 2013
+

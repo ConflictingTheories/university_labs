@@ -1,0 +1,51 @@
+float u ;
+long y ;
+
+long tk ;
+long tk1;
+long t2;
+
+byte DataLogFileX;
+string xdata;
+string tdata;
+string DatapairX;
+short bytesWritten;
+
+task main()
+{
+tk1 = CurrentTick();
+
+DeleteFile("datalog1.txt");
+
+if(CreateFile("datalog1.txt", 4096, DataLogFileX) == NO_ERR);
+{
+tk = CurrentTick() ;
+
+y = MotorRotationCount(OUT_A) ;
+
+u = 100;
+
+OnFwdReg(OUT_A, u, OUT_REGMODE_IDLE);
+
+while(true)
+{
+	y = MotorRotationCount(OUT_A) - y;
+	t2 = CurrentTick();
+
+	xdata = NumToStr(y);
+	tdata = NumToStr(t2-tk1);
+	DatapairX = StrCat(tdata, ", ", xdata);
+	WriteLnString(DataLogFileX, DatapairX, bytesWritten);
+
+	Wait(100);
+	Coast(OUT_A);
+
+	if(t2-tk1 >= 2000)
+          break;
+}
+
+CloseFile(DataLogFileX);
+}
+}
+
+

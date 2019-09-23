@@ -1,0 +1,36 @@
+Running: C:\Xilinx\14.2\ISE_DS\ISE\bin\nt\unwrapped\fuse.exe -intstyle ise -incremental -o H:/ENEL453/Lab2/ISim_Simulation/digclock_testb_isim_beh.exe -prj H:/ENEL453/Lab2/ISim_Simulation/digclock_testb_beh.prj work.digclock_testb 
+ISim P.28xd (signature 0x1048c146)
+Number of CPUs detected in this system: 4
+Turning on mult-threading, number of parallel sub-compilation jobs: 8 
+Determining compilation order of HDL files
+Parsing VHDL file "H:/ENEL453/Lab2/ISim_Simulation/../Gencounter.vhd" into library work
+Parsing VHDL file "H:/ENEL453/Lab2/ISim_Simulation/../min60sec60.vhd" into library work
+Parsing VHDL file "H:/ENEL453/Lab2/ISim_Simulation/BCDto7seg.vhd" into library work
+Parsing VHDL file "H:/ENEL453/Lab2/ISim_Simulation/../digitscanner.vhd" into library work
+Parsing VHDL file "H:/ENEL453/Lab2/ISim_Simulation/../digitmux.vhd" into library work
+Parsing VHDL file "H:/ENEL453/Lab2/ISim_Simulation/../Clockdivider.vhd" into library work
+Parsing VHDL file "H:/ENEL453/Lab2/ISim_Simulation/../digitclock60min.vhd" into library work
+Parsing VHDL file "H:/ENEL453/Lab2/ISim_Simulation/digclock_testb.vhd" into library work
+Starting static elaboration
+Completed static elaboration
+Fuse Memory Usage: 106008 KB
+Fuse CPU Usage: 264 ms
+Compiling package standard
+Compiling package std_logic_1164
+Compiling package numeric_std
+Compiling architecture behavioral of entity gencounter [\gencounter(5,25)\]
+Compiling architecture behavioral of entity gencounter [\gencounter(4,10)\]
+Compiling architecture behavioral of entity clockdivider [clockdivider_default]
+Compiling architecture behavioral of entity gencounter [\gencounter(3,6)\]
+Compiling architecture behavioral of entity min60sec60 [min60sec60_default]
+Compiling architecture behavioral of entity digitmux [digitmux_default]
+Compiling architecture behavioral of entity BCDto7seg [bcdto7seg_default]
+Compiling architecture behavioral of entity digitscanner [digitscanner_default]
+Compiling architecture behavioral of entity clocksystem [clocksystem_default]
+Compiling architecture behavior of entity digclock_testb
+Time Resolution for simulation is 1ps.
+Waiting for 1 sub-compilation(s) to finish...
+Compiled 22 VHDL Units
+Built simulation executable H:/ENEL453/Lab2/ISim_Simulation/digclock_testb_isim_beh.exe
+Fuse Memory Usage: 141192 KB
+Fuse CPU Usage: 467 ms

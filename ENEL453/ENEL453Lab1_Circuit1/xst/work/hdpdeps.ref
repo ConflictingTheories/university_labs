@@ -1,0 +1,15 @@
+V3 7
+FL //engfs.eng.ad.ucalgary.ca/home/kderbyma/ENEL453/ENEL453Lab1_Circuit1/ENEL453Lab1Circ1.vhd 2013/01/18.13:54:56 P.28xd
+EN work/ENEL453Lab1Circ1 1358545743 \
+      FL //engfs.eng.ad.ucalgary.ca/home/kderbyma/ENEL453/ENEL453Lab1_Circuit1/ENEL453Lab1Circ1.vhd \
+      PB ieee/std_logic_1164 1341906176
+AR work/ENEL453Lab1Circ1/Behavioral 1358545744 \
+      FL //engfs.eng.ad.ucalgary.ca/home/kderbyma/ENEL453/ENEL453Lab1_Circuit1/ENEL453Lab1Circ1.vhd \
+      EN work/ENEL453Lab1Circ1 1358545743
+FL //engfs.eng.ad.ucalgary.ca/home/kderbyma/ENEL453/ENEL453Lab1_Circuit1/ENEL453Lab1VHDlTestBench.vhd 2013/01/18.14:08:51 P.28xd
+EN work/ENEL453Lab1VHDlTestBench 1358543858 \
+      FL //engfs.eng.ad.ucalgary.ca/home/kderbyma/ENEL453/ENEL453Lab1_Circuit1/ENEL453Lab1VHDlTestBench.vhd \
+      PB ieee/std_logic_1164 1341906176
+AR work/ENEL453Lab1VHDlTestBench/Behavioral 1358543859 \
+      FL //engfs.eng.ad.ucalgary.ca/home/kderbyma/ENEL453/ENEL453Lab1_Circuit1/ENEL453Lab1VHDlTestBench.vhd \
+      EN work/ENEL453Lab1VHDlTestBench 1358543858 CP ENEL453Lab1Circ1
